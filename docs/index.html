@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="github-repo" content="bcb420-2020/Bioinfo_Basics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Main author: Boris Steipe; Modified: Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="abstractions.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="abstractions.html"><a href="abstractions.html"><i class="fa fa-check"></i><b>2</b> Abstractions for Bioinformatics</a><ul>
+<li class="chapter" data-level="2.1" data-path="abstractions.html"><a href="abstractions.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="abstractions.html"><a href="abstractions.html#abstract"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="abstractions.html"><a href="abstractions.html#objectives"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="abstractions.html"><a href="abstractions.html#outcomes"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="abstractions.html"><a href="abstractions.html#deliverables"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="abstractions.html"><a href="abstractions.html#prerequisites"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="abstractions.html"><a href="abstractions.html#task-1"><i class="fa fa-check"></i><b>2.2</b> Task 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="storing-data.html"><a href="storing-data.html"><i class="fa fa-check"></i><b>3</b> Storing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="storing-data.html"><a href="storing-data.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="storing-data.html"><a href="storing-data.html#abstract-1"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="storing-data.html"><a href="storing-data.html#objectives-1"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="storing-data.html"><a href="storing-data.html#outcomes-1"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="storing-data.html"><a href="storing-data.html#deliverables-1"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="storing-data.html"><a href="storing-data.html#prerequisites-1"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="storing-data.html"><a href="storing-data.html#evaluation"><i class="fa fa-check"></i><b>3.2</b> Evaluation</a></li>
+<li class="chapter" data-level="3.3" data-path="storing-data.html"><a href="storing-data.html#task-2"><i class="fa fa-check"></i><b>3.3</b> Task 2</a></li>
+<li class="chapter" data-level="3.4" data-path="storing-data.html"><a href="storing-data.html#text-files"><i class="fa fa-check"></i><b>3.4</b> Text files</a></li>
+<li class="chapter" data-level="3.5" data-path="storing-data.html"><a href="storing-data.html#spreadsheets"><i class="fa fa-check"></i><b>3.5</b> Spreadsheets</a></li>
+<li class="chapter" data-level="3.6" data-path="storing-data.html"><a href="storing-data.html#r"><i class="fa fa-check"></i><b>3.6</b> R</a></li>
+<li class="chapter" data-level="3.7" data-path="storing-data.html"><a href="storing-data.html#mysql-and-friends"><i class="fa fa-check"></i><b>3.7</b> MySQL and friends</a></li>
+<li class="chapter" data-level="3.8" data-path="storing-data.html"><a href="storing-data.html#store-data"><i class="fa fa-check"></i><b>3.8</b> Store Data</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="storing-data.html"><a href="storing-data.html#a-protein-datamodel"><i class="fa fa-check"></i><b>3.8.1</b> A protein datamodel</a></li>
+<li class="chapter" data-level="3.8.2" data-path="storing-data.html"><a href="storing-data.html#implementing-the-data-model-in-r"><i class="fa fa-check"></i><b>3.8.2</b> Implementing the Data Model in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="storing-data.html"><a href="storing-data.html#task-3"><i class="fa fa-check"></i><b>3.9</b> Task 3</a></li>
+<li class="chapter" data-level="3.10" data-path="storing-data.html"><a href="storing-data.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>3.10</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html"><i class="fa fa-check"></i><b>4</b> Bioinformatics Databases</a><ul>
+<li class="chapter" data-level="4.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#abstract-2"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#objectives-2"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#outcomes-2"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#deliverables-2"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#prerequisites-2"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#task-4"><i class="fa fa-check"></i><b>4.2</b> Task 4</a></li>
+<li class="chapter" data-level="4.3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>4.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ncbi-services.html"><a href="ncbi-services.html"><i class="fa fa-check"></i><b>5</b> The NCBI Database and Services</a><ul>
+<li class="chapter" data-level="5.1" data-path="ncbi-services.html"><a href="ncbi-services.html#overview-3"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="ncbi-services.html"><a href="ncbi-services.html#abstract-3"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ncbi-services.html"><a href="ncbi-services.html#objectives-3"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ncbi-services.html"><a href="ncbi-services.html#outcomes-3"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ncbi-services.html"><a href="ncbi-services.html#deliverables-3"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ncbi-services.html"><a href="ncbi-services.html#prerequisites-3"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ncbi-services.html"><a href="ncbi-services.html#evaluation-1"><i class="fa fa-check"></i><b>5.2</b> Evaluation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ncbi-services.html"><a href="ncbi-services.html#short-report-option"><i class="fa fa-check"></i><b>5.2.1</b> Short Report option</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ncbi-services.html"><a href="ncbi-services.html#quiz-option"><i class="fa fa-check"></i><b>5.2.2</b> Quiz option</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ncbi-services.html"><a href="ncbi-services.html#option-to-write-a-self-evaluation-question"><i class="fa fa-check"></i><b>5.2.3</b> Option to write a “Self-Evaluation Question”</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ncbi-services.html"><a href="ncbi-services.html#task-5"><i class="fa fa-check"></i><b>5.3</b> Task 5</a></li>
+<li class="chapter" data-level="5.4" data-path="ncbi-services.html"><a href="ncbi-services.html#entrez"><i class="fa fa-check"></i><b>5.4</b> Entrez</a></li>
+<li class="chapter" data-level="5.5" data-path="ncbi-services.html"><a href="ncbi-services.html#task-6"><i class="fa fa-check"></i><b>5.5</b> Task 6</a></li>
+<li class="chapter" data-level="5.6" data-path="ncbi-services.html"><a href="ncbi-services.html#task-7"><i class="fa fa-check"></i><b>5.6</b> Task 7</a></li>
+<li class="chapter" data-level="5.7" data-path="ncbi-services.html"><a href="ncbi-services.html#protein-sequence"><i class="fa fa-check"></i><b>5.7</b> Protein Sequence</a></li>
+<li class="chapter" data-level="5.8" data-path="ncbi-services.html"><a href="ncbi-services.html#task-8"><i class="fa fa-check"></i><b>5.8</b> Task 8</a></li>
+<li class="chapter" data-level="5.9" data-path="ncbi-services.html"><a href="ncbi-services.html#task-9"><i class="fa fa-check"></i><b>5.9</b> Task 9</a></li>
+<li class="chapter" data-level="5.10" data-path="ncbi-services.html"><a href="ncbi-services.html#pubmed"><i class="fa fa-check"></i><b>5.10</b> PubMed</a></li>
+<li class="chapter" data-level="5.11" data-path="ncbi-services.html"><a href="ncbi-services.html#task-10"><i class="fa fa-check"></i><b>5.11</b> Task 10</a></li>
+<li class="chapter" data-level="5.12" data-path="ncbi-services.html"><a href="ncbi-services.html#digression-a-bookmarklet-to-access-literature"><i class="fa fa-check"></i><b>5.12</b> Digression: A “bookmarklet” to access literature</a></li>
+<li class="chapter" data-level="5.13" data-path="ncbi-services.html"><a href="ncbi-services.html#original-information-and-annotation-transfer"><i class="fa fa-check"></i><b>5.13</b> Original Information and Annotation Transfer</a></li>
+<li class="chapter" data-level="5.14" data-path="ncbi-services.html"><a href="ncbi-services.html#task-11"><i class="fa fa-check"></i><b>5.14</b> Task 11</a></li>
+<li class="chapter" data-level="5.15" data-path="ncbi-services.html"><a href="ncbi-services.html#self-evaluation"><i class="fa fa-check"></i><b>5.15</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.16" data-path="ncbi-services.html"><a href="ncbi-services.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>5.16</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="misc-databases.html"><a href="misc-databases.html"><i class="fa fa-check"></i><b>6</b> Miscellaneous Databases for Bioinformatics</a><ul>
+<li class="chapter" data-level="6.1" data-path="misc-databases.html"><a href="misc-databases.html#overview-4"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="misc-databases.html"><a href="misc-databases.html#abstract-4"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="misc-databases.html"><a href="misc-databases.html#objectives-4"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="misc-databases.html"><a href="misc-databases.html#outcomes-4"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="misc-databases.html"><a href="misc-databases.html#deliverables-4"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="misc-databases.html"><a href="misc-databases.html#prerequisites-4"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="misc-databases.html"><a href="misc-databases.html#sgd---a-yeast-model-organism-database"><i class="fa fa-check"></i><b>6.2</b> SGD - a Yeast Model Organism Database</a></li>
+<li class="chapter" data-level="6.3" data-path="misc-databases.html"><a href="misc-databases.html#task-12"><i class="fa fa-check"></i><b>6.3</b> Task 12</a></li>
+<li class="chapter" data-level="6.4" data-path="misc-databases.html"><a href="misc-databases.html#task-13"><i class="fa fa-check"></i><b>6.4</b> Task 13</a></li>
+<li class="chapter" data-level="6.5" data-path="misc-databases.html"><a href="misc-databases.html#string---functional-interactions"><i class="fa fa-check"></i><b>6.5</b> STRING - functional interactions</a></li>
+<li class="chapter" data-level="6.6" data-path="misc-databases.html"><a href="misc-databases.html#task-14"><i class="fa fa-check"></i><b>6.6</b> Task 14</a></li>
+<li class="chapter" data-level="6.7" data-path="misc-databases.html"><a href="misc-databases.html#self-evaluation-1"><i class="fa fa-check"></i><b>6.7</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.8" data-path="misc-databases.html"><a href="misc-databases.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>6.8</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-integration.html"><a href="data-integration.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-integration.html"><a href="data-integration.html#overview-5"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-integration.html"><a href="data-integration.html#abstract-5"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-integration.html"><a href="data-integration.html#objectives-5"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-integration.html"><a href="data-integration.html#outcomes-5"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-integration.html"><a href="data-integration.html#deliverables-5"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-integration.html"><a href="data-integration.html#prerequisites-5"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-integration.html"><a href="data-integration.html#task-15"><i class="fa fa-check"></i><b>7.2</b> Task 15</a></li>
+<li class="chapter" data-level="7.3" data-path="data-integration.html"><a href="data-integration.html#task-16"><i class="fa fa-check"></i><b>7.3</b> Task 16</a></li>
+<li class="chapter" data-level="7.4" data-path="data-integration.html"><a href="data-integration.html#task-17"><i class="fa fa-check"></i><b>7.4</b> Task 17</a></li>
+<li class="chapter" data-level="7.5" data-path="data-integration.html"><a href="data-integration.html#task-18"><i class="fa fa-check"></i><b>7.5</b> Task 18</a></li>
+<li class="chapter" data-level="7.6" data-path="data-integration.html"><a href="data-integration.html#self-evaluation-2"><i class="fa fa-check"></i><b>7.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.7" data-path="data-integration.html"><a href="data-integration.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>7.7</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="expression-analysis.html"><a href="expression-analysis.html"><i class="fa fa-check"></i><b>8</b> Expression Analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="expression-analysis.html"><a href="expression-analysis.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="expression-analysis.html"><a href="expression-analysis.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="expression-analysis.html"><a href="expression-analysis.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="expression-analysis.html"><a href="expression-analysis.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="expression-analysis.html"><a href="expression-analysis.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="expression-analysis.html"><a href="expression-analysis.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="expression-analysis.html"><a href="expression-analysis.html#task-19"><i class="fa fa-check"></i><b>8.2</b> Task 19</a></li>
+<li class="chapter" data-level="8.3" data-path="expression-analysis.html"><a href="expression-analysis.html#self-evaluation-3"><i class="fa fa-check"></i><b>8.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.4" data-path="expression-analysis.html"><a href="expression-analysis.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>8.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geo.html"><a href="geo.html"><i class="fa fa-check"></i><b>9</b> The NCBI GEO Gene Expression database</a><ul>
+<li class="chapter" data-level="9.1" data-path="geo.html"><a href="geo.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="geo.html"><a href="geo.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="geo.html"><a href="geo.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="geo.html"><a href="geo.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="geo.html"><a href="geo.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="geo.html"><a href="geo.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="geo.html"><a href="geo.html#task-20"><i class="fa fa-check"></i><b>9.2</b> Task 20</a></li>
+<li class="chapter" data-level="9.3" data-path="geo.html"><a href="geo.html#self-evaluation-4"><i class="fa fa-check"></i><b>9.3</b> Self-evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="de-genes.html"><a href="de-genes.html"><i class="fa fa-check"></i><b>10</b> Discovering Differentially Expressed Genes</a><ul>
+<li class="chapter" data-level="10.1" data-path="de-genes.html"><a href="de-genes.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="de-genes.html"><a href="de-genes.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="de-genes.html"><a href="de-genes.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="de-genes.html"><a href="de-genes.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="de-genes.html"><a href="de-genes.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="de-genes.html"><a href="de-genes.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="de-genes.html"><a href="de-genes.html#task-21"><i class="fa fa-check"></i><b>10.2</b> Task 21</a></li>
+<li class="chapter" data-level="10.3" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>10.3</b> GEO2R</a></li>
+<li class="chapter" data-level="10.4" data-path="de-genes.html"><a href="de-genes.html#self-evaluation-5"><i class="fa fa-check"></i><b>10.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.5" data-path="de-genes.html"><a href="de-genes.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>10.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-testing.html"><a href="multiple-testing.html"><i class="fa fa-check"></i><b>11</b> Multiple Testing and Significance</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-testing.html"><a href="multiple-testing.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-testing.html"><a href="multiple-testing.html#abstract-9"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-testing.html"><a href="multiple-testing.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-testing.html"><a href="multiple-testing.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-testing.html"><a href="multiple-testing.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-testing.html"><a href="multiple-testing.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="multiple-testing.html"><a href="multiple-testing.html#task-22"><i class="fa fa-check"></i><b>11.2</b> Task 22</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-testing.html"><a href="multiple-testing.html#self-evaluation-6"><i class="fa fa-check"></i><b>11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.4" data-path="multiple-testing.html"><a href="multiple-testing.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>11.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>12</b> GEO2R</a><ul>
+<li class="chapter" data-level="12.1" data-path="geo2r.html"><a href="geo2r.html"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="geo2r.html"><a href="geo2r.html#abstract-10"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="geo2r.html"><a href="geo2r.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="geo2r.html"><a href="geo2r.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="geo2r.html"><a href="geo2r.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="geo2r.html"><a href="geo2r.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="geo2r.html"><a href="geo2r.html#evaluation-2"><i class="fa fa-check"></i><b>12.2</b> Evaluation</a></li>
+<li class="chapter" data-level="12.3" data-path="geo2r.html"><a href="geo2r.html#task-23"><i class="fa fa-check"></i><b>12.3</b> Task 23</a></li>
+<li class="chapter" data-level="12.4" data-path="geo2r.html"><a href="geo2r.html#self-evaluation-7"><i class="fa fa-check"></i><b>12.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.5" data-path="geo2r.html"><a href="geo2r.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>12.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">BCB420 - Computational System Biology</h1>
+<h2 class="subtitle"><em>Bioinfo - Basics</em></h2>
+<p class="author"><em>Main author: Boris Steipe; Modified: Ruth Isserlin</em></p>
+<p class="date"><em>last modified 2019-12-25</em></p>
+</div>
+<div id="about" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> About</h1>
+<p>Original content for this book was created by <a href="http://biochemistry.utoronto.ca/person/boris-steipe/">Boris Steipe</a> from <a href="http://steipe.biochemistry.utoronto.ca/abc/index.php/Computational_Systems_Biology_Main_Page">Boris Steipe BCB420 wiki resources</a> licensed under <img src="images/cc_icon.png" /> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+<div id="attributions" class="section level2">
+<h2><span class="header-section-number">1.1</span> Attributions:</h2>
+<p>This book was created using The <strong>bookdown</strong> package and can be installed from CRAN or Github:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
+<span class="co"># or the development version</span>
+<span class="co"># devtools::install_github(&quot;rstudio/bookdown&quot;)</span></code></pre></div>
+<p>Icons are from the <a href="https://www.iconfinder.com/iconsets/very-basic-android-l-lollipop">“Very Basic. Android L Lollipop” set by Ivan Boyko</a> licensed under <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="abstractions.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/bcb420-2020/Bioinfo_Basics/commit/master/index.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/bcb420-2020/Bioinfo_Basics/blob/master/index.Rmd",
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit3_Basic_bioinfo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+# Expression Analysis {#expression-analysis}
+(Analysing expression measurements; Microarray: spots to levels; NGS: Reads to counts)
+
+## Overview
+### Abstract:
+
+This unit introduces microarray and RNAseq methods to estimate mRNA expression levels in the cell.
+
+### Objectives:
+This unit will:
+
+  * introduce microarray and RNAseq methods to estimate mRNA expression levels in the cell.
+
+### Outcomes:
+After working through this unit you:
+
+  * are familar with key methods and terminology in the field.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+You need the following preparation before beginning this unit. If you are not familiar with this material from courses you took previously, you need to prepare yourself from other information sources:
+
+The Central Dogma: Regulation of transcription and translation; protein biosynthesis and degradation; quality control.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+Read the introductory notes on [measuring and analysing gene expression levels](boris_docs/BIN-EXPR-Analysis.pdf).
+````
+
+## Self-evaluation
+
+## Further reading, links and resources
+[Common file format FAQ at UCSC](https://genome.ucsc.edu/FAQ/FAQformat.html)
+
+ 
+
+
+ 
+
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-11-10<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 first live version<br>
+0.1 First stub<br>
+``` 

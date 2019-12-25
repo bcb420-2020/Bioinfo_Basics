@@ -1,0 +1,69 @@
+# The NCBI GEO Gene Expression database {#geo}
+(NCBI GEO: finding and analyzing expression profiles)
+
+## Overview
+### Abstract:
+
+Introduction to the contents and utilities of the GEO mRNA expression database.
+
+### Objectives:
+
+This unit will:
+
+  * introduce the contents and utilities of the GEO mRNA expression database.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * can access GEO, find expression datasets and analyze them with the provided tools.
+  
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-Data_integration (Data Integration)](#data-integration)<br>
+[BIN-EXPR-Analysis (Expression Analysis)](#expression-analysis)
+
+
+The transcriptome is the set of a cell's mRNA molecules. The transcriptome originates from the genome, mostly, that is, and it results in the proteome, again: mostly. RNA that is [transcribed](https://en.wikipedia.org/wiki/Transcription_(biology)) from the genome is not yet fit for translation but must be processed: [splicing](https://en.wikipedia.org/wiki/RNA_splicing) is ubiquitous^[Strictly speaking, splicing is an eukaryotic achievement, however there are examples of splicing in prokaryotes as well] and in addition [RNA editing](https://en.wikipedia.org/wiki/RNA_editing) has been encountered in many species. Some authors therefore refer to the exome—the set of transcribed [exons](https://en.wikipedia.org/wiki/exons)— to indicate the actual coding sequence.
+
+Microarray technology — the quantitative, sequence-specific hybridization of labelled nucleotides in chip-format — was the first domain of "high-throughput biology". Today, it has largely been replaced by [RNA-seq](https://en.wikipedia.org/wiki/RNA-Seq): quantification of transcribed mRNA by high-throughput sequencing and mapping reads to genes. Quantifying gene expression levels in a tissue-, development-, or response-specific way has yielded detailed insight into cellular function at the molecular level, with recent results of single-cell sequencing experiments adding a new level of precision. But not all transcripts are mapped to genes: we increasingly realize that the transcriptome is not merely a passive buffer of expressed information on its way to be translated into proteins, but contains multiple levels of complex, regulation through hybridization of small nuclear RNAs[(2015) The noncoding explosion. Nat Struct Mol Biol 22:1. (pmid: 25565024) <br>Jarvis & Robertson (2011) The noncoding universe. BMC Biol 9:52. (pmid: 21798102)].
+
+NCBI's GEO database stores expression data and experiment matadata and makes it publicly available.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+ 
+```{block, type="rmd-task"}
+Read the article below for a comprehensive current introduction to the GEO database. But do some active reading in the sense that you actually access the [GEO database](https://www.ncbi.nlm.nih.gov/geo/) and follow along on the Web with what is being described in the paper.
+
+Clough & Barrett (2016) The Gene Expression Omnibus Database. Methods Mol Biol 1418:93-110. (pmid: 27008011)
+[PubMed](https://www.ncbi.nlm.nih.gov/pubmed/27008011)  [DOI](https://link.springer.com/protocol/10.1007%2F978-1-4939-3578-9_5) 
+```
+
+## Self-evaluation
+
+ 
+
+
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-11-10<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 first live version<br>
+0.1 First stub<br>
+``` 

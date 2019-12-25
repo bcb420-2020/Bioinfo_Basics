@@ -1,0 +1,135 @@
+# Miscellaneous Databases for Bioinformatics {#misc-databases}
+(SGD; STRING; ...)
+
+## Overview
+### Abstract:
+This unit collects short explorations of various databases. It is probably best not to work through the units all in one go, but to go through them in context of an actual use case, when you need information from one of them. Currently we have SGD and STRING.
+
+### Objectives:
+
+This unit will:
+
+  * introduce various database offerings and explore their use.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * can navigate and use the databases that are discussed here.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-Databases (Bioinformatics Databases)](#bioinfo-databases)
+
+
+## SGD - a Yeast Model Organism Database
+
+Yeast happens to have a very well maintained **model organism database** - a Web resource dedicated to Saccharomyces cerevisiae. Where such dedicated resources are available, they are very useful for the community. For the general case however, we need to work with one of the large, general data providers - the NCBI and the EBI. But in order to get a sense of the type of data that is available, let's explore the SGD database.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Access the [information page on Mbp1](https://www.yeastgenome.org/locus/S000002214) at the Saccharomyces Genome Database.
+
+Browse through the Summary page and note the available information: you should see:
+  * information about the gene and the protein;
+  * Information about it's roles in the cell curated at the Gene Ontology database;
+  * Information about knock-out phenotypes; (Amazing. Would you have imagined that this is a non-essential gene?)
+  * Information about protein-protein interactions;
+  * Regulation and expression;
+  * A curators' summary of our understanding of the protein. Mandatory reading.
+  * And key references.
+
+Access the [Protein tab](https://www.yeastgenome.org/locus/S000002214/protein) and note the much more detailed information.
+  * Domains and their classification;
+  * Sequence;
+  * Shared domains;
+  * and much more...
+```
+
+You will notice that some of this information relates to the molecule itself, and some of it relates to its relationship with other molecules. Some of it is stored at SGD, and some of it is cross-referenced from other databases. And we have textual data, numeric data, and images.
+
+If we would be working on yeast, most data we need is right here: curated, kept current and consistent, referenced to the literature and ready to use. But if you are working on a different species - some "MYSPE"- you need to integrate data yourself, from data sources such as the NCBI, or UniProt. The upside is that most of the information like this is available for many, many species. The downside is that you have to integrate information from many different sources essentially "by hand".
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Explore the download section of the Database. Some of these offerings will come up in later learning units.
+  * Navigate to the Analyze → Gene Lists page. Paste the following identifiers. (This could be the result of some functional screen, or a set of differentially expressed genes, or other gene list returned from an assay or bioinformatics procedure...):
+YAR014C YBR040W YBR200W YCL027W YCR089W YDL223C YDR085C YDR141C
+YER125W YER133W YER149C YHR102W YHR135C YHR158C YIL129C YKL048C
+YKL189W YKR031C YLL021W YLR229C YLR313C YLR332W YMR232W YNL154C
+YNR032C-A YOL111C YOR326W YPL123C YPR194C
+  * What do these genes have in common? Can you identify a common theme of function?
+  * Navigate to the Analyze → GO Slim mapper page. Paste your gene list for "Step 1". Choose "Yeast GO-Slim: Function" as the ontology of terms to search in for these genes for "Step 2". Choose "SELECT ALL Terms..." for "Step 3". Consider the results. Most of the genes have unknown functions, there is no clear theme for those with a known function.
+  * Now repeat the procedure for "GO-Slim:Process". All genes are annotated to "cell morphogenesis" (which is not surprising, because that is how I selected them.). And there are inetersting and informative overlaps with other functional categories.
+  * Click on "Download results". What do you get? How would you read this data into R?
+```
+ 
+## STRING - functional interactions
+
+The essence of our "new" view of molcular biology is the study of interactions: after characterizing biomolecules individually, we are assembling networks of relationships through protein-protein and other interaction experiments. But visualizing the results is not trivial since we need to display genes as networks, define attributes of the nodes and edges and encode them in our visualization, develop quantitative measures that help us mine the data for information, and map the results back into the network to evaluate the influence of the network topology (gene "neigborhoods") on our findings. Databases strive to build integrated viewers for this kind of data. However there is much that still needs to be done. Have a look at this article that discusses the gap between what one would need to do, and what is offered:
+
+Jeanquartier et al. (2015) Integrated web visualizations for protein-protein interaction databases. BMC Bioinformatics 16:195. (pmid: 26077899)
+[ [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/26077899) ][ [DOI](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-015-0615-z) ] 
+
+The online resource that comes out as the best is the one at the [STRING database](https://string-db.org/cgi/input.pl).
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Review:
+    * Szklarczyk et al. (2017) The STRING database in 2017: quality-controlled protein-protein association networks, made broadly accessible. Nucleic Acids Res 45:D362-D368. (pmid: 27924014)
+[ [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/27924014) ][ [DOI](https://academic.oup.com/nar/article/45/D1/D362/2290901) ] 
+  * Navigate to the STRING database and search for saccharomyces cerevisiae Mbp1 interactors.
+  * Visualize the network. Add a few proteins by clicking the (+) button two or three times.
+  * Click on a node to get a synopsis of its function.
+  * Explore the "confidence", "evidence" and "actions" networks for the retrieved interactors.
+  * Not all interacting proteins are also predicted to have a functional relationship with Mbp1. Do you agree?
+  * Explore the clustering and layout options. Do you understand what they do?
+  * Explore the Views on
+    * Neighborhood (gene-neighborhood is basically only relevant for prokaryotic operons though)
+    * Fusion (gene-fusion can identify proteins that stably interact in the cell)
+    * Occurence
+    * Coexpression
+    * Experiments
+    * Database, and
+    * Textmining
+
+Each of these are methods for predicting functional relationships. Figure out how each one contributes to evidence of a functional interaction between Mbp1 and its predicted functional partners. I find the Occurrence view a unique and intriguing tool: visualizing in which organisms groups of genes are either all absent or all present allows to quickly establish functional clusters.
+
+  * Explore the "Download" options. Some of this data will be used in other learning units.
+
+```
+
+In summary, STRING is a convincingly well built tool to explore functional relationships between proteins.
+ 
+##Self-evaluation
+
+##Further reading, links and resources
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-10-08<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 Completed to first live version<br>
+0.1 First stub<br>
+``` 

@@ -1,0 +1,67 @@
+#Bioinformatics Databases {#bioinfo-databases}
+(Database principles for bioinformatics)
+
+## Overview
+### Abstract:
+Large, scalable, multi-user database systems require a fair amount of technology underneath the hood. In particular, they need to fulfill the ACID requirements that ensure database integrity. This unit introduces the principles, and then moves onto an overview of current bioinformatics databases, and Web services.
+
+### Objectives:
+
+This unit will:
+  
+  * describes construction principles for database systems;
+  * mentions some general aspects of dtabase use in bioinformatics;
+  * explores the current NAR database and Web service issues.
+
+###Outcomes:
+
+After working through this unit you:
+
+  * can define the four ACID requirements for tranactional integrity of databases;
+  * are familar with a spectrum of database and Web service offerings in bioinformatics.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-Storing_data (Storing Data))](#storing-data)
+
+In this unit we develop the technical context of bioinformatics databases and get a perspective on the multitude of data offerings in the field. Data and service offerings have no clearly defined boundaries, and many sites offer a mix of both. Thus we explore current Web services as well to define the landscape.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Read the introductory notes on [construction principles for large, multi-user, scalable database systems](./boris_docs/BIN-Databases.pdf).
+  * Visit the current [Database Issue of NAR](https://academic.oup.com/nar/issue/47/D1) and browse the titles.
+  * Read the editorial article in this issue:
+Galperin et al. (2017) The 24th annual Nucleic Acids Research database issue: a look back and upcoming changes. Nucleic Acids Res 45:D1-D11. (pmid: 28053160)
+[ [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/28053160) ][ [DOI](https://academic.oup.com/nar/article/45/D1/D1/2770636) ] [Abstract] 
+  * Visit the current [Web Service Issue of NAR](https://academic.oup.com/nar/issue/47/W1) and browse the titles.
+Read the editorial article on this issue.
+```
+
+
+## Further reading, links and resources
+ 
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-10-01<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 Completed to first live version<br>
+0.1 First stub<br>
+``` 

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Storing Data | BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Storing Data | BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="github-repo" content="bcb420-2020/Bioinfo_Basics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Storing Data | BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Main author: Boris Steipe; Modified: Ruth Isserlin" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="abstractions.html"/>
+<link rel="next" href="bioinfo-databases.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#attributions"><i class="fa fa-check"></i><b>1.1</b> Attributions:</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="abstractions.html"><a href="abstractions.html"><i class="fa fa-check"></i><b>2</b> Abstractions for Bioinformatics</a><ul>
+<li class="chapter" data-level="2.1" data-path="abstractions.html"><a href="abstractions.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="abstractions.html"><a href="abstractions.html#abstract"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="abstractions.html"><a href="abstractions.html#objectives"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="abstractions.html"><a href="abstractions.html#outcomes"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="abstractions.html"><a href="abstractions.html#deliverables"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="abstractions.html"><a href="abstractions.html#prerequisites"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="abstractions.html"><a href="abstractions.html#task-1"><i class="fa fa-check"></i><b>2.2</b> Task 1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="storing-data.html"><a href="storing-data.html"><i class="fa fa-check"></i><b>3</b> Storing Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="storing-data.html"><a href="storing-data.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="storing-data.html"><a href="storing-data.html#abstract-1"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="storing-data.html"><a href="storing-data.html#objectives-1"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="storing-data.html"><a href="storing-data.html#outcomes-1"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="storing-data.html"><a href="storing-data.html#deliverables-1"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="storing-data.html"><a href="storing-data.html#prerequisites-1"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="storing-data.html"><a href="storing-data.html#evaluation"><i class="fa fa-check"></i><b>3.2</b> Evaluation</a></li>
+<li class="chapter" data-level="3.3" data-path="storing-data.html"><a href="storing-data.html#task-2"><i class="fa fa-check"></i><b>3.3</b> Task 2</a></li>
+<li class="chapter" data-level="3.4" data-path="storing-data.html"><a href="storing-data.html#text-files"><i class="fa fa-check"></i><b>3.4</b> Text files</a></li>
+<li class="chapter" data-level="3.5" data-path="storing-data.html"><a href="storing-data.html#spreadsheets"><i class="fa fa-check"></i><b>3.5</b> Spreadsheets</a></li>
+<li class="chapter" data-level="3.6" data-path="storing-data.html"><a href="storing-data.html#r"><i class="fa fa-check"></i><b>3.6</b> R</a></li>
+<li class="chapter" data-level="3.7" data-path="storing-data.html"><a href="storing-data.html#mysql-and-friends"><i class="fa fa-check"></i><b>3.7</b> MySQL and friends</a></li>
+<li class="chapter" data-level="3.8" data-path="storing-data.html"><a href="storing-data.html#store-data"><i class="fa fa-check"></i><b>3.8</b> Store Data</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="storing-data.html"><a href="storing-data.html#a-protein-datamodel"><i class="fa fa-check"></i><b>3.8.1</b> A protein datamodel</a></li>
+<li class="chapter" data-level="3.8.2" data-path="storing-data.html"><a href="storing-data.html#implementing-the-data-model-in-r"><i class="fa fa-check"></i><b>3.8.2</b> Implementing the Data Model in R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="storing-data.html"><a href="storing-data.html#task-3"><i class="fa fa-check"></i><b>3.9</b> Task 3</a></li>
+<li class="chapter" data-level="3.10" data-path="storing-data.html"><a href="storing-data.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>3.10</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html"><i class="fa fa-check"></i><b>4</b> Bioinformatics Databases</a><ul>
+<li class="chapter" data-level="4.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#abstract-2"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#objectives-2"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#outcomes-2"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#deliverables-2"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#prerequisites-2"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#task-4"><i class="fa fa-check"></i><b>4.2</b> Task 4</a></li>
+<li class="chapter" data-level="4.3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>4.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ncbi-services.html"><a href="ncbi-services.html"><i class="fa fa-check"></i><b>5</b> The NCBI Database and Services</a><ul>
+<li class="chapter" data-level="5.1" data-path="ncbi-services.html"><a href="ncbi-services.html#overview-3"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="ncbi-services.html"><a href="ncbi-services.html#abstract-3"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ncbi-services.html"><a href="ncbi-services.html#objectives-3"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ncbi-services.html"><a href="ncbi-services.html#outcomes-3"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ncbi-services.html"><a href="ncbi-services.html#deliverables-3"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ncbi-services.html"><a href="ncbi-services.html#prerequisites-3"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="ncbi-services.html"><a href="ncbi-services.html#evaluation-1"><i class="fa fa-check"></i><b>5.2</b> Evaluation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ncbi-services.html"><a href="ncbi-services.html#short-report-option"><i class="fa fa-check"></i><b>5.2.1</b> Short Report option</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ncbi-services.html"><a href="ncbi-services.html#quiz-option"><i class="fa fa-check"></i><b>5.2.2</b> Quiz option</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ncbi-services.html"><a href="ncbi-services.html#option-to-write-a-self-evaluation-question"><i class="fa fa-check"></i><b>5.2.3</b> Option to write a “Self-Evaluation Question”</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="ncbi-services.html"><a href="ncbi-services.html#task-5"><i class="fa fa-check"></i><b>5.3</b> Task 5</a></li>
+<li class="chapter" data-level="5.4" data-path="ncbi-services.html"><a href="ncbi-services.html#entrez"><i class="fa fa-check"></i><b>5.4</b> Entrez</a></li>
+<li class="chapter" data-level="5.5" data-path="ncbi-services.html"><a href="ncbi-services.html#task-6"><i class="fa fa-check"></i><b>5.5</b> Task 6</a></li>
+<li class="chapter" data-level="5.6" data-path="ncbi-services.html"><a href="ncbi-services.html#task-7"><i class="fa fa-check"></i><b>5.6</b> Task 7</a></li>
+<li class="chapter" data-level="5.7" data-path="ncbi-services.html"><a href="ncbi-services.html#protein-sequence"><i class="fa fa-check"></i><b>5.7</b> Protein Sequence</a></li>
+<li class="chapter" data-level="5.8" data-path="ncbi-services.html"><a href="ncbi-services.html#task-8"><i class="fa fa-check"></i><b>5.8</b> Task 8</a></li>
+<li class="chapter" data-level="5.9" data-path="ncbi-services.html"><a href="ncbi-services.html#task-9"><i class="fa fa-check"></i><b>5.9</b> Task 9</a></li>
+<li class="chapter" data-level="5.10" data-path="ncbi-services.html"><a href="ncbi-services.html#pubmed"><i class="fa fa-check"></i><b>5.10</b> PubMed</a></li>
+<li class="chapter" data-level="5.11" data-path="ncbi-services.html"><a href="ncbi-services.html#task-10"><i class="fa fa-check"></i><b>5.11</b> Task 10</a></li>
+<li class="chapter" data-level="5.12" data-path="ncbi-services.html"><a href="ncbi-services.html#digression-a-bookmarklet-to-access-literature"><i class="fa fa-check"></i><b>5.12</b> Digression: A “bookmarklet” to access literature</a></li>
+<li class="chapter" data-level="5.13" data-path="ncbi-services.html"><a href="ncbi-services.html#original-information-and-annotation-transfer"><i class="fa fa-check"></i><b>5.13</b> Original Information and Annotation Transfer</a></li>
+<li class="chapter" data-level="5.14" data-path="ncbi-services.html"><a href="ncbi-services.html#task-11"><i class="fa fa-check"></i><b>5.14</b> Task 11</a></li>
+<li class="chapter" data-level="5.15" data-path="ncbi-services.html"><a href="ncbi-services.html#self-evaluation"><i class="fa fa-check"></i><b>5.15</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.16" data-path="ncbi-services.html"><a href="ncbi-services.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>5.16</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="misc-databases.html"><a href="misc-databases.html"><i class="fa fa-check"></i><b>6</b> Miscellaneous Databases for Bioinformatics</a><ul>
+<li class="chapter" data-level="6.1" data-path="misc-databases.html"><a href="misc-databases.html#overview-4"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="misc-databases.html"><a href="misc-databases.html#abstract-4"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="misc-databases.html"><a href="misc-databases.html#objectives-4"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="misc-databases.html"><a href="misc-databases.html#outcomes-4"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="misc-databases.html"><a href="misc-databases.html#deliverables-4"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="misc-databases.html"><a href="misc-databases.html#prerequisites-4"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="misc-databases.html"><a href="misc-databases.html#sgd---a-yeast-model-organism-database"><i class="fa fa-check"></i><b>6.2</b> SGD - a Yeast Model Organism Database</a></li>
+<li class="chapter" data-level="6.3" data-path="misc-databases.html"><a href="misc-databases.html#task-12"><i class="fa fa-check"></i><b>6.3</b> Task 12</a></li>
+<li class="chapter" data-level="6.4" data-path="misc-databases.html"><a href="misc-databases.html#task-13"><i class="fa fa-check"></i><b>6.4</b> Task 13</a></li>
+<li class="chapter" data-level="6.5" data-path="misc-databases.html"><a href="misc-databases.html#string---functional-interactions"><i class="fa fa-check"></i><b>6.5</b> STRING - functional interactions</a></li>
+<li class="chapter" data-level="6.6" data-path="misc-databases.html"><a href="misc-databases.html#task-14"><i class="fa fa-check"></i><b>6.6</b> Task 14</a></li>
+<li class="chapter" data-level="6.7" data-path="misc-databases.html"><a href="misc-databases.html#self-evaluation-1"><i class="fa fa-check"></i><b>6.7</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.8" data-path="misc-databases.html"><a href="misc-databases.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>6.8</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="data-integration.html"><a href="data-integration.html"><i class="fa fa-check"></i><b>7</b> Data Integration</a><ul>
+<li class="chapter" data-level="7.1" data-path="data-integration.html"><a href="data-integration.html#overview-5"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="data-integration.html"><a href="data-integration.html#abstract-5"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="data-integration.html"><a href="data-integration.html#objectives-5"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="data-integration.html"><a href="data-integration.html#outcomes-5"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="data-integration.html"><a href="data-integration.html#deliverables-5"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="data-integration.html"><a href="data-integration.html#prerequisites-5"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="data-integration.html"><a href="data-integration.html#task-15"><i class="fa fa-check"></i><b>7.2</b> Task 15</a></li>
+<li class="chapter" data-level="7.3" data-path="data-integration.html"><a href="data-integration.html#task-16"><i class="fa fa-check"></i><b>7.3</b> Task 16</a></li>
+<li class="chapter" data-level="7.4" data-path="data-integration.html"><a href="data-integration.html#task-17"><i class="fa fa-check"></i><b>7.4</b> Task 17</a></li>
+<li class="chapter" data-level="7.5" data-path="data-integration.html"><a href="data-integration.html#task-18"><i class="fa fa-check"></i><b>7.5</b> Task 18</a></li>
+<li class="chapter" data-level="7.6" data-path="data-integration.html"><a href="data-integration.html#self-evaluation-2"><i class="fa fa-check"></i><b>7.6</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.7" data-path="data-integration.html"><a href="data-integration.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>7.7</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="expression-analysis.html"><a href="expression-analysis.html"><i class="fa fa-check"></i><b>8</b> Expression Analysis</a><ul>
+<li class="chapter" data-level="8.1" data-path="expression-analysis.html"><a href="expression-analysis.html#overview-6"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="expression-analysis.html"><a href="expression-analysis.html#abstract-6"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="expression-analysis.html"><a href="expression-analysis.html#objectives-6"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="expression-analysis.html"><a href="expression-analysis.html#outcomes-6"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="expression-analysis.html"><a href="expression-analysis.html#deliverables-6"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="expression-analysis.html"><a href="expression-analysis.html#prerequisites-6"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="expression-analysis.html"><a href="expression-analysis.html#task-19"><i class="fa fa-check"></i><b>8.2</b> Task 19</a></li>
+<li class="chapter" data-level="8.3" data-path="expression-analysis.html"><a href="expression-analysis.html#self-evaluation-3"><i class="fa fa-check"></i><b>8.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="8.4" data-path="expression-analysis.html"><a href="expression-analysis.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>8.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="geo.html"><a href="geo.html"><i class="fa fa-check"></i><b>9</b> The NCBI GEO Gene Expression database</a><ul>
+<li class="chapter" data-level="9.1" data-path="geo.html"><a href="geo.html#overview-7"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="geo.html"><a href="geo.html#abstract-7"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="geo.html"><a href="geo.html#objectives-7"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="geo.html"><a href="geo.html#outcomes-7"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="geo.html"><a href="geo.html#deliverables-7"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="geo.html"><a href="geo.html#prerequisites-7"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="geo.html"><a href="geo.html#task-20"><i class="fa fa-check"></i><b>9.2</b> Task 20</a></li>
+<li class="chapter" data-level="9.3" data-path="geo.html"><a href="geo.html#self-evaluation-4"><i class="fa fa-check"></i><b>9.3</b> Self-evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="de-genes.html"><a href="de-genes.html"><i class="fa fa-check"></i><b>10</b> Discovering Differentially Expressed Genes</a><ul>
+<li class="chapter" data-level="10.1" data-path="de-genes.html"><a href="de-genes.html#overview-8"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="de-genes.html"><a href="de-genes.html#abstract-8"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="de-genes.html"><a href="de-genes.html#objectives-8"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="de-genes.html"><a href="de-genes.html#outcomes-8"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="de-genes.html"><a href="de-genes.html#deliverables-8"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="de-genes.html"><a href="de-genes.html#prerequisites-8"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="de-genes.html"><a href="de-genes.html#task-21"><i class="fa fa-check"></i><b>10.2</b> Task 21</a></li>
+<li class="chapter" data-level="10.3" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>10.3</b> GEO2R</a></li>
+<li class="chapter" data-level="10.4" data-path="de-genes.html"><a href="de-genes.html#self-evaluation-5"><i class="fa fa-check"></i><b>10.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.5" data-path="de-genes.html"><a href="de-genes.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>10.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="multiple-testing.html"><a href="multiple-testing.html"><i class="fa fa-check"></i><b>11</b> Multiple Testing and Significance</a><ul>
+<li class="chapter" data-level="11.1" data-path="multiple-testing.html"><a href="multiple-testing.html#overview-9"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="multiple-testing.html"><a href="multiple-testing.html#abstract-9"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="multiple-testing.html"><a href="multiple-testing.html#objectives-9"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="multiple-testing.html"><a href="multiple-testing.html#outcomes-9"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="multiple-testing.html"><a href="multiple-testing.html#deliverables-9"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="multiple-testing.html"><a href="multiple-testing.html#prerequisites-9"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="multiple-testing.html"><a href="multiple-testing.html#task-22"><i class="fa fa-check"></i><b>11.2</b> Task 22</a></li>
+<li class="chapter" data-level="11.3" data-path="multiple-testing.html"><a href="multiple-testing.html#self-evaluation-6"><i class="fa fa-check"></i><b>11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.4" data-path="multiple-testing.html"><a href="multiple-testing.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>11.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>12</b> GEO2R</a><ul>
+<li class="chapter" data-level="12.1" data-path="geo2r.html"><a href="geo2r.html"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="geo2r.html"><a href="geo2r.html#abstract-10"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="geo2r.html"><a href="geo2r.html#objectives-10"><i class="fa fa-check"></i><b>12.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="geo2r.html"><a href="geo2r.html#outcomes-10"><i class="fa fa-check"></i><b>12.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="12.1.4" data-path="geo2r.html"><a href="geo2r.html#deliverables-10"><i class="fa fa-check"></i><b>12.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.5" data-path="geo2r.html"><a href="geo2r.html#prerequisites-10"><i class="fa fa-check"></i><b>12.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="geo2r.html"><a href="geo2r.html#evaluation-2"><i class="fa fa-check"></i><b>12.2</b> Evaluation</a></li>
+<li class="chapter" data-level="12.3" data-path="geo2r.html"><a href="geo2r.html#task-23"><i class="fa fa-check"></i><b>12.3</b> Task 23</a></li>
+<li class="chapter" data-level="12.4" data-path="geo2r.html"><a href="geo2r.html#self-evaluation-7"><i class="fa fa-check"></i><b>12.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="12.5" data-path="geo2r.html"><a href="geo2r.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>12.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="storing-data" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Storing Data</h1>
+<p>(Representation of data; common data formats; implementing a data model; JSON.)</p>
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<div id="abstract-1" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Abstract:</h3>
+<p>This unit discusses options for storing and organizing data in a variety of formats, and develops R code for a protein data model, based on JSON formatted source data.</p>
+</div>
+<div id="objectives-1" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Objectives:</h3>
+<p>This unit will:</p>
+<ul>
+<li>Introduce principles of storing data in different formats and principles of supporting storage, maintenance, and retrieval with different tools;</li>
+<li>Implement relational data models as lists of data frames in R;</li>
+<li>Develop code for this purpose and teach how to work with such code;</li>
+<li>Find the closest homologue of Mbp1 in MYSPE.</li>
+</ul>
+</div>
+<div id="outcomes-1" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Outcomes:</h3>
+<p>After working through this unit you:</p>
+<ul>
+<li>can recommend alternatives for storing data, depending on the context and objectives;</li>
+<li>can create, edit and validate JSON formatted data;</li>
+<li>have practiced creating a relational database as a list of dataframes;</li>
+<li>can query the database directly, and via cross-referenc ing tables;</li>
+<li>have discovered the closest homologue to yeast Mbp1 in MYSPE;</li>
+<li>have added key information about this protein to the database;</li>
+</ul>
+</div>
+<div id="deliverables-1" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Deliverables:</h3>
+<p><strong>Time management</strong>: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.</p>
+<p><strong>Journal</strong>: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don’t overlook these.</p>
+<p><strong>Insights</strong>: If you find something particularly noteworthy about this unit, make a note in your insights! page.</p>
+</div>
+<div id="prerequisites-1" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Prerequisites:</h3>
+<p>This unit builds on material covered in the following prerequisite units:</p>
+<p><a href="abstractions.html#abstractions">BIN-Abstractions (Abstractions for Bioinformatics)</a></p>
+</div>
+</div>
+<div id="evaluation" class="section level2">
+<h2><span class="header-section-number">3.2</span> Evaluation</h2>
+<p>This learning unit can be evaluated for a maximum of 6 marks. If you want to submit the tasks for this unit for credit:</p>
+<ul>
+<li>Create a new page on the student Wiki as a subpage of your User Page.</li>
+<li>There are a number of tasks in which you are explicitly asked you to submit code or other text for credit. Put all of these submission on this one page. When you are done with everything, add the following category tag to the end of page:[[Category:EVAL-BIN-Storing_data]].</li>
+<li><strong>Once the page has been saved with this tag, it is considered “submitted”. Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.</strong></li>
+</ul>
+</div>
+<div id="task-2" class="section level2">
+<h2><span class="header-section-number">3.3</span> Task 2</h2>
+<div class="rmd-task">
+<p>
+Read the introductory notes on concepts about <a href="boris_docs/BIN_Storing_data.pdf">storing data for bioinformatics</a>.
+</p>
+</div>
+<p>Any software project requires modelling on many levels - data-flow models, logic models, user interaction models and more. But all of these ultimately rely on a data model that defines how the world is going to be represented in the computer for the project’s purpose. The process of abstraction of data entities and defining their relationships can (and should) take up a major part of the project definition, often taking several iterations until you get it right. Whether your data can be completely described, consistently stored and efficiently retrieved is determined to a large part by your data model.</p>
+<p>Databases can take many forms, from memories in your brain, to shoe-cartons under your bed, to software applications on your computer, or warehouse-sized data centres. Fundamentally, these all do the same thing: collect information and make it available.</p>
+<p>Let us consider collecting information on APSES-domain transcription factors in various fungi, with the goal of being able to compare them. Let’s specify this as follows:</p>
+<p>Store data on APSES-domain proteins so that we can * cross reference the source databases; * study if they have the same features (e.g. domains);and compare the features. * The underlying information can easily be retrieved for a protein from its RefSeq or UniProt entry.</p>
+</div>
+<div id="text-files" class="section level2">
+<h2><span class="header-section-number">3.4</span> Text files</h2>
+<p>A first attempt to organize the data might be simply to write it down as text:</p>
+<p>name: Mbp1 refseq ID: NP_010227 uniprot ID: P39678 species: Saccharomyces cerevisiae taxonomy ID: 4392 sequence: MSNQIYSARYSGVDVYEFIHSTGSIMKRKKDDWVNATHILKAANFAKAKR TRILEKEVLKETHEKVQGGFGKYQGTWVPLNIAKQLAEKFSVYDQLKPLF DFTQTDGSASPPPAPKHHHASKVDRKKAIRSASTSAIMETKRNNKKAEEN QFQSSKILGNPTAAPRKRGRPVGSTRGSRRKLGVNLQRSQSDMGFPRPAI PNSSISTTQLPSIRSTMGPQSPTLGILEEERHDSRQQQPQQNNSAQFKEI DLEDGLSSDVEPSQQLQQVFNQNTGFVPQQQSSLIQTQQTESMATSVSSS PSLPTSPGDFADSNPFEERFPGGGTSPIISMIPRYPVTSRPQTSDINDKV NKYLSKLVDYFISNEMKSNKSLPQVLLHPPPHSAPYIDAPIDPELHTAFH WACSMGNLPIAEALYEAGTSIRSTNSQGQTPLMRSSLFHNSYTRRTFPRI FQLLHETVFDIDSQSQTVIHHIVKRKSTTPSAVYYLDVVLSKIKDFSPQY RIELLLNTQDKNGDTALHIASKNGDVVFFNTLVKMGALTTISNKEGLTAN EIMNQQYEQMMIQNGTNQHVNSSNTDLNIHVNTNNIETKNDVNSMVIMSP VSPSDYITYPSQIATNISRNIPNVVNSMKQMASIYNDLHEQHDNEIKSLQ KTLKSISKTKIQVSLKTLEVLKESSKDENGEAQTNDDFEILSRLQEQNTK KLRKRLIRYKRLIKQKLEYRQTVLLNKLIEDETQATTNNTVEKDNNTLER LELAQELTMLQLQRKNKLSSLVKKFEDNAKIHKYRRIIREGTEMNIEEVD SSLDVILQTLIANNNKNKGAEQIITISNANSHA length: 833 Kila-N domain: 21-93 Ankyrin domains: 369-455, 505-549 …</p>
+<p>… and save it all in one large text file and whenever you need to look something up, you just open the file, look for e.g. the name of the protein and read what’s there. Or - for a more structured approach, you could put this into several files in a folder.<a href="geo2r.html#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> This is a perfectly valid approach and for some applications it might not be worth the effort to think more deeply about how to structure the data, and store it in a way that it is robust and scales easily to large datasets. Alas, small projects have a tendency to grow into large projects and if you work in this way, it’s almost guaranteed that you will end up doing many things by hand that could easily be automated. Imagine asking questions like:</p>
+<ul>
+<li>How many proteins do I have?</li>
+<li>What’s the sequence of the Kila-N domain?</li>
+<li>What percentage of my proteins have an Ankyrin domain?</li>
+<li>Or two …?</li>
+</ul>
+<p>Answering these questions “by hand” is possible, but tedious.</p>
+</div>
+<div id="spreadsheets" class="section level2">
+<h2><span class="header-section-number">3.5</span> Spreadsheets</h2>
+<p>Data for three yeast APSES domain proteins in an Excel spreadsheet.</p>
+<div class="figure">
+<img src="boris_docs/DB_Excel-spreadsheet.jpg" />
+
+</div>
+<p>Many serious researchers keep their project data in spreadsheets. Often they use Excel, or an alternative like the free <a href="https://www.openoffice.org/product/calc.html">OpenOffice Calc</a>, or <a href="https://www.google.ca/sheets/about/">Google Sheets</a>, both of which are compatible with Excel and have some interesting advantages. Here, all your data is in one place, easy to edit. You can even do simple calculations - although you should never use Excel for statistics<a href="geo2r.html#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. You could answer What percentage of my proteins have an Ankyrin domain? quite easily<a href="geo2r.html#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
+<p>There are two major downsides to spreadsheets. For one, complex queries need programming. There is no way around this. You can program inside Excel with Visual Basic. But you might as well export your data so you can work on it with a “real” programming language. The other thing is that Excel does not scale very well. Once you have more than a hundred proteins in your spreadsheet, you can see how finding anything can become tedious.</p>
+<p>However, just because it was built for business applications, and designed for use by office assistants, does not mean it is intrinsically unsuitable for our domain. It’s important to be pragmatic, not dogmatic, when choosing tools: choose according to your real requirements. Sometimes “quick and dirty” is just fine, because quick.</p>
+</div>
+<div id="r" class="section level2">
+<h2><span class="header-section-number">3.6</span> R</h2>
+<p>R can keep complex data in data frames and lists. If we do data analysis with R, we have to load the data first. We can use any of the read.table() functions for structured data, read lines of raw text with readLines(), or slurp in entire files with scan(). Convenient packages exist to parse structured data like XML or JSON and import it. But we could also keep the data in an R object in the first place that we can read from disk, analyze, modify, and write back. In this case, R becomes our database engine.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sample construction of an R database table as a dataframe</span>
+ 
+<span class="co"># Data for the Mbp1 protein</span>
+proteins &lt;-<span class="st"> </span><span class="kw">data.frame</span>(
+    <span class="dt">name     =</span> <span class="st">&quot;Mbp1&quot;</span>,
+    <span class="dt">refSeq   =</span> <span class="st">&quot;NP_010227&quot;</span>,
+    <span class="dt">uniProt  =</span> <span class="st">&quot;P39678&quot;</span>,
+    <span class="dt">species  =</span> <span class="st">&quot;Saccharomyces cerevisiae&quot;</span>,
+    <span class="dt">taxId    =</span> <span class="st">&quot;4392&quot;</span>,
+    <span class="dt">sequence =</span> <span class="kw">paste</span>(
+                    <span class="st">&quot;MSNQIYSARYSGVDVYEFIHSTGSIMKRKKDDWVNATHILKAANFAKAKR&quot;</span>,
+                    <span class="st">&quot;TRILEKEVLKETHEKVQGGFGKYQGTWVPLNIAKQLAEKFSVYDQLKPLF&quot;</span>,
+                    <span class="st">&quot;DFTQTDGSASPPPAPKHHHASKVDRKKAIRSASTSAIMETKRNNKKAEEN&quot;</span>,
+                    <span class="st">&quot;QFQSSKILGNPTAAPRKRGRPVGSTRGSRRKLGVNLQRSQSDMGFPRPAI&quot;</span>,
+                    <span class="st">&quot;PNSSISTTQLPSIRSTMGPQSPTLGILEEERHDSRQQQPQQNNSAQFKEI&quot;</span>,
+                    <span class="st">&quot;DLEDGLSSDVEPSQQLQQVFNQNTGFVPQQQSSLIQTQQTESMATSVSSS&quot;</span>,
+                    <span class="st">&quot;PSLPTSPGDFADSNPFEERFPGGGTSPIISMIPRYPVTSRPQTSDINDKV&quot;</span>,
+                    <span class="st">&quot;NKYLSKLVDYFISNEMKSNKSLPQVLLHPPPHSAPYIDAPIDPELHTAFH&quot;</span>,
+                    <span class="st">&quot;WACSMGNLPIAEALYEAGTSIRSTNSQGQTPLMRSSLFHNSYTRRTFPRI&quot;</span>,
+                    <span class="st">&quot;FQLLHETVFDIDSQSQTVIHHIVKRKSTTPSAVYYLDVVLSKIKDFSPQY&quot;</span>,
+                    <span class="st">&quot;RIELLLNTQDKNGDTALHIASKNGDVVFFNTLVKMGALTTISNKEGLTAN&quot;</span>,
+                    <span class="st">&quot;EIMNQQYEQMMIQNGTNQHVNSSNTDLNIHVNTNNIETKNDVNSMVIMSP&quot;</span>,
+                    <span class="st">&quot;VSPSDYITYPSQIATNISRNIPNVVNSMKQMASIYNDLHEQHDNEIKSLQ&quot;</span>,
+                    <span class="st">&quot;KTLKSISKTKIQVSLKTLEVLKESSKDENGEAQTNDDFEILSRLQEQNTK&quot;</span>,
+                    <span class="st">&quot;KLRKRLIRYKRLIKQKLEYRQTVLLNKLIEDETQATTNNTVEKDNNTLER&quot;</span>,
+                    <span class="st">&quot;LELAQELTMLQLQRKNKLSSLVKKFEDNAKIHKYRRIIREGTEMNIEEVD&quot;</span>,
+                    <span class="st">&quot;SSLDVILQTLIANNNKNKGAEQIITISNANSHA&quot;</span>,
+                    <span class="dt">sep=</span><span class="st">&quot;&quot;</span>),
+    <span class="dt">seqLen   =</span> <span class="dv">833</span>,
+    <span class="dt">KilAN    =</span> <span class="st">&quot;21-93&quot;</span>,
+    <span class="dt">Ankyrin  =</span> <span class="st">&quot;369-455, 505-549&quot;</span>,
+    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add data for the Swi4 protein</span>
+proteins &lt;-<span class="st"> </span><span class="kw">rbind</span>(proteins,
+                  <span class="kw">data.frame</span>(
+    <span class="dt">name     =</span> <span class="st">&quot;Swi4&quot;</span>,
+    <span class="dt">refSeq   =</span> <span class="st">&quot;NP_011036&quot;</span>,
+    <span class="dt">uniProt  =</span> <span class="st">&quot;P25302&quot;</span>,
+    <span class="dt">species  =</span> <span class="st">&quot;Saccharomyces cerevisiae&quot;</span>,
+    <span class="dt">taxId    =</span> <span class="st">&quot;4392&quot;</span>,
+    <span class="dt">sequence =</span> <span class="kw">paste</span>(
+                    <span class="st">&quot;MPFDVLISNQKDNTNHQNITPISKSVLLAPHSNHPVIEIATYSETDVYEC&quot;</span>,
+                    <span class="st">&quot;YIRGFETKIVMRRTKDDWINITQVFKIAQFSKTKRTKILEKESNDMQHEK&quot;</span>,
+                    <span class="st">&quot;VQGGYGRFQGTWIPLDSAKFLVNKYEIIDPVVNSILTFQFDPNNPPPKRS&quot;</span>,
+                    <span class="st">&quot;KNSILRKTSPGTKITSPSSYNKTPRKKNSSSSTSATTTAANKKGKKNASI&quot;</span>,
+                    <span class="st">&quot;NQPNPSPLQNLVFQTPQQFQVNSSMNIMNNNDNHTTMNFNNDTRHNLINN&quot;</span>,
+                    <span class="st">&quot;ISNNSNQSTIIQQQKSIHENSFNNNYSATQKPLQFFPIPTNLQNKNVALN&quot;</span>,
+                    <span class="st">&quot;NPNNNDSNSYSHNIDNVINSSNNNNNGNNNNLIIVPDGPMQSQQQQQHHH&quot;</span>,
+                    <span class="st">&quot;EYLTNNFNHSMMDSITNGNSKKRRKKLNQSNEQQFYNQQEKIQRHFKLMK&quot;</span>,
+                    <span class="st">&quot;QPLLWQSFQNPNDHHNEYCDSNGSNNNNNTVASNGSSIEVFSSNENDNSM&quot;</span>,
+                    <span class="st">&quot;NMSSRSMTPFSAGNTSSQNKLENKMTDQEYKQTILTILSSERSSDVDQAL&quot;</span>,
+                    <span class="st">&quot;LATLYPAPKNFNINFEIDDQGHTPLHWATAMANIPLIKMLITLNANALQC&quot;</span>,
+                    <span class="st">&quot;NKLGFNCITKSIFYNNCYKENAFDEIISILKICLITPDVNGRLPFHYLIE&quot;</span>,
+                    <span class="st">&quot;LSVNKSKNPMIIKSYMDSIILSLGQQDYNLLKICLNYQDNIGNTPLHLSA&quot;</span>,
+                    <span class="st">&quot;LNLNFEVYNRLVYLGASTDILNLDNESPASIMNKFNTPAGGSNSRNNNTK&quot;</span>,
+                    <span class="st">&quot;ADRKLARNLPQKNYYQQQQQQQQPQNNVKIPKIIKTQHPDKEDSTADVNI&quot;</span>,
+                    <span class="st">&quot;AKTDSEVNESQYLHSNQPNSTNMNTIMEDLSNINSFVTSSVIKDIKSTPS&quot;</span>,
+                    <span class="st">&quot;KILENSPILYRRRSQSISDEKEKAKDNENQVEKKKDPLNSVKTAMPSLES&quot;</span>,
+                    <span class="st">&quot;PSSLLPIQMSPLGKYSKPLSQQINKLNTKVSSLQRIMGEEIKNLDNEVVE&quot;</span>,
+                    <span class="st">&quot;TESSISNNKKRLITIAHQIEDAFDSVSNKTPINSISDLQSRIKETSSKLN&quot;</span>,
+                    <span class="st">&quot;SEKQNFIQSLEKSQALKLATIVQDEESKVDMNTNSSSHPEKQEDEEPIPK&quot;</span>,
+                    <span class="st">&quot;STSETSSPKNTKADAKFSNTVQESYDVNETLRLATELTILQFKRRMTTLK&quot;</span>,
+                    <span class="st">&quot;ISEAKSKINSSVKLDKYRNLIGITIENIDSKLDDIEKDLRANA&quot;</span>,
+                    <span class="dt">sep=</span><span class="st">&quot;&quot;</span>),
+    <span class="dt">seqLen   =</span> <span class="dv">1093</span>,
+    <span class="dt">KilAN    =</span> <span class="st">&quot;56-122&quot;</span>,
+    <span class="dt">Ankyrin  =</span> <span class="st">&quot;516-662&quot;</span>,
+    <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+    )</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># how many proteins?</span>
+<span class="kw">nrow</span>(proteins)</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#what are their names?</span>
+proteins[,<span class="st">&quot;name&quot;</span>]</code></pre></div>
+<pre><code>## [1] &quot;Mbp1&quot; &quot;Swi4&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># how many do not have an Ankyrin domain?</span>
+<span class="kw">sum</span>(proteins[,<span class="st">&quot;Ankyrin&quot;</span>] <span class="op">==</span><span class="st"> &quot;&quot;</span>)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># save it to file</span>
+<span class="kw">save</span>(proteins, <span class="dt">file=</span><span class="st">&quot;proteinData.Rda&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># delete it from memory</span>
+<span class="kw">rm</span>(proteins)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># check...</span>
+<span class="cf">if</span>(<span class="op">!</span><span class="kw">exists</span>(<span class="st">&quot;proteins&quot;</span>)){
+  <span class="kw">paste</span>(<span class="st">&quot;Error: object &#39;proteins&#39; not found&quot;</span>)
+}  <span class="co"># ... yes, it&#39;s gone</span></code></pre></div>
+<pre><code>## [1] &quot;Error: object &#39;proteins&#39; not found&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># read it back in:</span>
+<span class="kw">load</span>(<span class="st">&quot;proteinData.Rda&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># did this work?</span>
+<span class="kw">sum</span>(proteins[,<span class="st">&quot;seqLen&quot;</span>])   <span class="co"># 1926 amino acids</span></code></pre></div>
+<pre><code>## [1] 1926</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># [</span><span class="re">END</span><span class="co">]</span></code></pre></div>
+<p>The third way to use <strong>R</strong> for data is to connect it to a “real” database:</p>
+<ul>
+<li>a relational database like <a href="https://en.wikipedia.org/wiki/MySQL">mySQL</a>, <a href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a>, or <a href="https://en.wikipedia.org/wiki/PostgreSQL">PostgreSQL</a>;</li>
+<li>an object/document database like {{WP|MongoDB};</li>
+<li>or even a graph-database like <a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j</a>.</li>
+</ul>
+<p><strong>R</strong> “drivers” are available for all of these. However all of these require installing extra software on your computer: the actual database, which runs as an independent application. If you need a rock-solid database with guaranteed integrity, multi-user support, ACID transactional gurantees, industry standard performance, and scalability to even very large datasets, don’t think of rolling your own solution. One of the above is the way to go.</p>
+</div>
+<div id="mysql-and-friends" class="section level2">
+<h2><span class="header-section-number">3.7</span> MySQL and friends</h2>
+<p>A “Schema” for a table that stores data for APSES domain proteins. This is a screenshot of the free MySQL Workbench application. <img src="boris_docs/DB_MySQL-Workbench.jpg" /> MySQL is a free, open relational database that powers some of the largest corporations as well as some of the smallest laboratories. It is based on a client-server model. The database engine runs as a daemon in the background and waits for connection attempts. When a connection is established, the server process establishes a communication session with the client. The client sends requests, and the server responds. One can do this interactively, by running the client program /usr/local/mysql/bin/mysql (on Unix systems). Or, when you are using a program such as <strong>R</strong>, Python, Perl, etc. you use the appropriate method calls or functions—the driver—to establish the connection.</p>
+<p>These types of databases use their own language to describe actions: SQL - which handles data definition, data manipulation, and data control.</p>
+<p>Just for illustration, the Figure above shows a table for our APSES domain protein data, built as a table in the MySQL workbench application and presented as an Entity Relationship Diagram (ERD). There is only one entity though - the protein “table”. The application can generate the actual code that implements this model on a SQL compliant database:</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="kw">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> `mydb`.`proteins` (
+  `name` <span class="dt">VARCHAR</span>(<span class="dv">20</span>) <span class="kw">NULL</span>,
+  `refSeq` <span class="dt">VARCHAR</span>(<span class="dv">20</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,
+  `uniProt` <span class="dt">VARCHAR</span>(<span class="dv">20</span>) <span class="kw">NULL</span>,
+  `species` <span class="dt">VARCHAR</span>(<span class="dv">45</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">COMMENT</span> <span class="st">&#39;  &#39;</span>,
+  `taxId` <span class="dt">VARCHAR</span>(<span class="dv">10</span>) <span class="kw">NULL</span>,
+  `sequence` <span class="dt">BLOB</span> <span class="kw">NULL</span>,
+  `seqLen` <span class="dt">INT</span> <span class="kw">NULL</span>,
+  `KilA-N` <span class="dt">VARCHAR</span>(<span class="dv">45</span>) <span class="kw">NULL</span>,
+  `Ankyrin` <span class="dt">VARCHAR</span>(<span class="dv">45</span>) <span class="kw">NULL</span>,
+  <span class="kw">PRIMARY</span> <span class="kw">KEY</span> (`refSeq`))
+ENGINE = InnoDB</code></pre></div>
+<p>This looks at least as complicated as putting the model into <strong>R</strong> in the first place. Why then would we do this, if we need to load it into <strong>R</strong> for analysis anyway. There are several important reasons.</p>
+<ul>
+<li><strong>Scalability</strong>: these systems are built to work with very large datasets and optimized for performance. In theory <strong>R</strong> has very good performance with large data objects, but not so when the data becomes larger than what the computer can keep in memory all at once.</li>
+<li><strong>Concurrency</strong>: when several users need to access the data potentially at the same time, you must use a “real” database system. Handling problems of concurrent access is what they are made for.</li>
+<li><strong>ACID compliance</strong>. <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> describes four aspects that make a database robust, these are crucial for situations in which you have only partial control over your system or its input, and they would be quite laborious to implement for your hand built <strong>R</strong> data model: <strong>Atomicity</strong>: Atomicity requires that each transaction is handled “indivisibly”: it either succeeds fully, with all requested elements, or not at all. <strong>Consistency</strong>: Consistency requires that any transaction will bring the database from one valid state to another. In particular any data-validation rules have to be enforced. <strong>Isolation</strong>: Isolation ensures that any concurrent execution of transactions results in the exact same database state as if transactions would have been executed serially, one after the other. <strong>Durability</strong>: The Durability requirement ensures that a committed transaction remains permanently committed, even in the event that the database crashes or later errors occur. You can think of this like an “autosave” function on every operation.</li>
+</ul>
+<p>All the database systems I have mentioned above are ACID compliant<a href="geo2r.html#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
+<p>Incidentally - we are looking forward to RStudio 1.1 with it’s promise to bring R syntax to the interaction with SQL databases, removing another barrier.</p>
+</div>
+<div id="store-data" class="section level2">
+<h2><span class="header-section-number">3.8</span> Store Data</h2>
+<div id="a-protein-datamodel" class="section level3">
+<h3><span class="header-section-number">3.8.1</span> A protein datamodel</h3>
+<p><img src="boris_docs/proteinDB.png" /> Entity-Relationship Diagram (ERD) for a protein data model that includes protein, taxonomy and feature annotations. Entity names are at the top of each box, attributes are listed below. If you think of an entity as an <strong>R</strong> dataframe, or a spreadsheet table, the attributes are the column names and each specific instance of an entity fills one row (or “record”).All relationships link to unique primary keys and are thus 1 to (0, n). The diagram was drawn as a <a href="https://docs.google.com/drawings/d/1uupNvz18_FYFwyyVPebTM0CUxcJCPDQuxuIJGpjWQWg/edit">“Google drawing”</a> and you can view it on the Web and make a copy for your own purposes.</p>
+</div>
+<div id="implementing-the-data-model-in-r" class="section level3">
+<h3><span class="header-section-number">3.8.2</span> Implementing the Data Model in R</h3>
+<p>To actually implement the data model in <strong>R</strong> we will create the tables as data frames, and we will collect them in a list. We don’t have to keep the tables in a list - we could also keep them as independent objects, but a list is neater, more flexible (we might want to have several of these), it reflects our intent about the model better, and doesn’t require very much more typing.</p>
+</div>
+</div>
+<div id="task-3" class="section level2">
+<h2><span class="header-section-number">3.9</span> Task 3</h2>
+<div class="rmd-task">
+<ul>
+<li>
+Open RStudio and load the ABC-units R project. If you have loaded it before, choose File → Recent projects → ABC-Units. If you have not loaded it before, follow the instructions in the <a href="http://steipe.biochemistry.utoronto.ca/abc/index.php/RPR-Introduction">RPR-Introduction unit</a>.
+</li>
+<li>
+Choose Tools → Version Control → Pull Branches to fetch the most recent version of the project from its GitHub repository with all changes and bug fixes included.
+</li>
+<li>
+Type init() as requested.
+</li>
+<li>
+Open the file BIN-Storing_data.R and follow the instructions.
+</li>
+</ul>
+<p>
+<strong>Note</strong>: take care that you understand all of the code in the script. Evaluation in this course is cumulative and you may be asked to explain any part of code.
+</p>
+</div>
+</div>
+<div id="further-reading-links-and-resources" class="section level2">
+<h2><span class="header-section-number">3.10</span> Further reading, links and resources</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Database_normalization">Database normalization</a></li>
+<li><a href="https://www.lucidchart.com/pages/database-diagram/database-models">Overview of data model types (Lucidchart)</a></li>
+</ul>
+<p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2017-09-22<br> Version: 1.0.1<br> <strong>Version history</strong>:<br> 1.0.1 Add link to data model types overview<br> 1.0 Completed to first live version<br> 0.1 First stub<br>
+</div>
+
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Your operating system can help you keep the files organized. The “file system” is a database.<a href="storing-data.html#fnref1">↩</a></p></li>
+<li id="fn2"><p>For real: Excel is miserable and often wrong on statistics, and it makes horrible, ugly plots. See <a href="http://www.practicalstats.com/xlstats/excelstats.html">here</a> and <a href="https://www.burns-stat.com/documents/tutorials/spreadsheet-addiction/">here</a> why Excel problems are not merely cosmetic.<a href="storing-data.html#fnref2">↩</a></p></li>
+<li id="fn3"><p>At the bottom of the window there is a menu that says “sum = …” by default. This provides simple calculations on the selected range. Set the choice to “count”, select all Ankyrin domain entries, and the count shows you how many cells actually have a value.<a href="storing-data.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>For a list of relational Database Management Systems, see <a href="https://en.wikipedia.org/wiki/Https://en.wikipedia.org/wiki/Comparison_of_relational_database_management_systems">here</a>.<a href="storing-data.html#fnref4">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="abstractions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bioinfo-databases.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": "https://github.com/bcb420-2020/Bioinfo_Basics/commit/master/02_Storing_data.Rmd",
+"text": null
+},
+"view": {
+"link": "https://github.com/bcb420-2020/Bioinfo_Basics/blob/master/02_Storing_data.Rmd",
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit3_Basic_bioinfo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"new_session": false
+});
+});
+</script>
+
+</body>
+
+</html>

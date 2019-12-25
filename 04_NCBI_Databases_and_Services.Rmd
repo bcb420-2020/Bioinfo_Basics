@@ -1,0 +1,235 @@
+# The NCBI Database and Services {#ncbi-services}
+(The NCBI databases and services)
+
+## Overview
+### Abstract:
+
+The NCBI hosts some of the world's most important bioinformatics databases and services. This learning unit explores them in the context of our search for information on yeast Mbp1 and its homologue in MYSPE.
+
+### Objectives:
+This unit will:
+
+  * introduce the Entrez system of NCBI databases and its associated services;
+  * demonstrate how to navigate from a generic search to a specific record in the RefSeq Protein database and what information is linked from there;
+  * teach Entrez field codes and qualifiers for searches.
+
+###Outcomes:
+
+After working through this unit you:
+
+  * can find the RefSeq Protein record for the Mbp1 homologue in MYSPE;
+  * are familar with the NCBI databases, and how Entrez cross-references them;
+  * can confidently apply the correct field codes to search for specific entries.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-Databases (Bioinformatics Databases)](#bioinfo-databases)
+
+## Evaluation
+
+This learning unit can be evaluated for a maximum of 6 marks. If you want to submit tasks for this unit for credit you have the following options. If you have any questions about these options, discuss on the mailing list.
+
+### Short Report option
+
+  * If you submit both BIN-NCBI and BIN-EBI for evaluation, you can choose this option for only one of the two.
+  * In the BIN-Storing_data unit you have found the protein of MYSPE that is most similar to yeast Mbp1, in MYSPE. Navigate to the NCBI Protein page for the RefSeq entry of this protein. Explore the links that go out from the page. Assess which resources are independently useful, and which resources merely recapitulate information that relates to yeast Mbp1, the protein that you originally searched with.
+  * Create a new page on the student Wiki as a subpage of your User Page.
+  * Write a short report on your findings. The goal of this short report is to develop a sense for where a page like this one collects original information, and where it merely acts as a record of annotation transfer. Refer to the "General" section of the marking rubrics for aspects of the report that will be evaluated.
+When you are done with everything, add the following category tag to the end of page:[[Category:EVAL-BIN-NCBI]].
+  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
+
+### Quiz option
+
+  * Open the signup-page for the quiz for this unit (linked from here) and add your name. Your name must be signed up by 12:00 of the day of the Quiz to ensure copies of the quiz are available for all participants.
+  * Quizzes will be written in class, back-to-back if there is more than one quiz scheduled. We may begin at any time. We will have an open-ended Q&A session before the quiz. You can't take the quiz if you are not present in class when the question sheets are handed out, so don't be late. Once all scheduled quizzes are written, we will discuss and mark them. You will mark your own quiz. All marking must be done with a red pen - so you must bring a red pen to class in order to participate. The mark you give yourself may be revised by the instructor after spot-checking quizzes. If this is necessary, you will be notified. You must mark your quiz correctly and honestly - don't get into trouble with academic integrity rules: it will be an academic offence if you mark questions as correct that were discussed in class and should have been marked incorrect. When in doubt, ask.
+
+### Option to write a "Self-Evaluation Question"
+
+  * If you submit both BIN-NCBI and BIN-EBI for evaluation, you can choose this option for only one of the two.
+  * Write a "Self-evaluation Question" (with a model solution) that explores a significant, non-trivial aspect of studying how to work with EBI resources within this learning unit. Ensure that the question is feasible, given the existing content of the unit - or coordinate an extension of the contents with your instructor. Ensure your question pursues a high-level learning goal, it should allow others to demonstrate understanding, critical analysis, and/or the capacity to integrate and synthesize knowledge, not merely test memorization. Ensure that your question is specific, not ambiguous, vague or tangential to the contents. Ensure you are testing valuable knowledge and skills, not Cargo Cult. Apply the marking rubrics in spirit to satisfy yourself of the quality of your contribution. Obviously, details of evaluation will vary with the question. Use the format and code templates that you find on the Self evaluation questions page - but don't assume those examples are already models of excellent contributions. Note: assume that approximately the same amount of work is expected for all evaluation options. Consequently, the standard of excellence for this option will be quite high.
+  * Create a new page on the student Wiki as a subpage of your User Page. Develop your question there.
+  * When you are done with everything, add the following category tag to the end of page: [[Category:EVAL-BIN-NCBI]].
+  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
+
+
+The [NCBI (National Center for Biotechnology Information)](https://www.ncbi.nlm.nih.gov/guide/sitemap/) is one of the two largest, international providers of data for genomics and molecular biology (the EBI is the other). With its annual budget of several hundred million dollars, it organizes a challenging program of data management at the largest scale, it makes its data freely and openly available over the Internet, worldwide, and it runs significant in-house research projects.
+
+In this unit we explore some of the offerings of the NCBI that can contribute to our objective of studying a particular gene in an organism of interest.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Read the introductory article on NCBI database resources:
+
+NCBI Resource Coordinators (2019) Database Resources of the National Center for Biotechnology Information. Nucleic Acids Res 47:D23-D28. [(pmid: 27899561)](https://www.ncbi.nlm.nih.gov/pubmed/30395293)<br>
+[PubMed](https://www.ncbi.nlm.nih.gov/pubmed/30395293) 
+```
+ 
+## Entrez
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+**Remember to document your activities as lab-notes on your Wiki.**
+
+  * Access the NCBI website at http://www.ncbi.nlm.nih.gov/ [If you find this URL hard to remember, consider the acronyms:<br>ncbi.nlm.nih.gov<br>NCBI: National Center for Biotechnology Information<br>NLM: National Library of Medicine<br>NIH: National Institutes of Health<br>GOV: the US GOVernment top-level domain]
+  * In the search bar, enter mbp1 and click Search.
+  * On the resulting page, look for the Protein section and click on the link. What do you find?
+```
+
+The result page of your search in "All Databases" is the "Global Query Result Page" of the Entrez system. If you follow the "Protein" link, you get taken to the more than 610 sequences in the NCBI Protein database that contain the keyword "mbp1". But when you look more closely at the results, you see that the result is quite non-specific: searching only by keyword retrieves a multiubiquitin chain binding protein in Arabidopsis, myrosinase binding proteins, bacterial mannose binding proteins, a Saccharomyces protein (perhaps one that we are actually interested in), maltose binding proteins, myelin basic proteins - and much more. There must be a more specific way to search, and indeed there is. Time to read up on the Entrez system.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Navigate to the [Entrez Help Page](https://www.ncbi.nlm.nih.gov/books/NBK3837/) and read about the Entrez system, especially about:
+    * Boolean operators,
+    * wildcards,
+    * limits, and
+    * filters.
+  * You should minimally understand:
+    * How to search by keyword;
+    * How to search by gene or protein name;
+    * How to restrict a search to a particular organism.
+
+And you should know that these filters are in part database specific, i.e. not all of them will work in all databases.
+
+Don't skip this part, you should know the more common options and how to find the others. It would be great to have a synopsis of the important fields for reference, wouldn't it? We have started building one on the Student Wiki ([A synopsis of Entrez codes](http://steipe.biochemistry.utoronto.ca/abc/students/index.php/Entrez)). Currently, I think it lacks structure, and examples. Contributors and editors welcome!
+```
+
+Keyword and organism searches are pretty universal, but apart from that, each NCBI database has its own set of specific fields. You can access the keywords via the Advanced Search interface of any of the database pages.
+
+
+ 
+## Protein Sequence
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+With this knowledge we can restrict the search to proteins called "Mbp1" that occur in Baker's Yeast. Return to the [Global Search page](https://www.ncbi.nlm.nih.gov/) and in the search field, type:
+
+Mbp1[protein name] AND
+ "Saccharomyces cerevisiae"[organism]
+```
+
+This finds two entries in the Protein database. Follow the link to the result CAA98618.1—a data record in Genbank Flat File (GFF) format^[If there is only a single match, you will be been taken directly to the page.]. The database identifier CAA98618.1 tells you that this is a record in the GenPept database. There are actually several, identical versions of this sequence in the NCBI's holdings. A link to the ["Identical Protein Groups"](https://www.ncbi.nlm.nih.gov/ipg/258763) Database near the top of the record shows you what these are:
+
+Some of the sequences represent duplicate entries of the same gene (Mbp1) in the same strain (S288c) of the same species (S. cerevisiae). In particular:
+
+  * there are several records for which the source is the [INSDC](http://www.insdc.org/), these are archival entries, submitted by independent yeast genome research projects;
+  * there are two entries in the **RefSeq** database linking to the same protein: [NP_010227.1](https://www.ncbi.nlm.nih.gov/protein/NP_010227.1. One is derived from genome sequence, the other from mRNA. This RefSeq entry is the preferred version of a sequence for our purposes. RefSeq is a curated, non-redundant database which solves a number of problems of archival databases. You can recognize RefSeq identifiers – they always look like NP_12345.1, NM_12345.1, XP_12345.1, NC_12345.1 etc. This reflects whether the sequence is protein, mRNA or genomic, and inferred or obtained through experimental evidence.
+  * there is a **SwissProt** sequence [P39678.1](https://www.ncbi.nlm.nih.gov/protein/P39678.1)^[Actually the "real" SwissProt identifier would be patterned like MBP1_YEAST. P39678 is the corresponding UniProt identifier.]. This link is kind of a big deal. It's a cross-reference into [UniProt](https://www.uniprot.org/uniprot/P39678), the huge protein sequence database maintained by the **EBI** ([European Bioinformatics Institute](https://www.ebi.ac.uk/)), which is the NCBI's counterpart in Europe. SwissProt entries have the highest annotation standard overall and are expertly curated. Many Webservices work with UniProt ID's (e.g. P39678.1), rather than NCBI IDs such as a RefSeq ID. But it used to be until recently that the two databases did not link to each other, mostly for reasons of funding politics. It's great to see that this divide has now been overcome.
+
+Note that while all of these entries come from Saccharomyces cerevisiae, they have been sequenced in different yeast strains. Thus they don't have to be identical (except for the fact that this is a table of identical sequences), such related sequences might be slightly different because the strains are after all not genetically identical. And sometimes we find identical sequences in quite divergent species. Therefore I would not actually consider [EIW11153.1](https://www.ncbi.nlm.nih.gov/protein/EIW11153.1), [AJU86440.1](https://www.ncbi.nlm.nih.gov/protein/AJU86440.1), [AJU58508.1](https://www.ncbi.nlm.nih.gov/protein/AJU58508.1), and [AJU61971.1](https://www.ncbi.nlm.nih.gov/protein/AJU61971.1) to be identical proteins, although they have the same sequence.
+
+Note all the .1 suffixes of the sequence identifiers. These are version numbers. Two observations:
+
+  1. It's great that version numbers are now used throughout the NCBI database. This is good database engineering practice because it's really important for reproducible research that updates to database records are possible, but recognizable. When working with data you always must provide for the possibility of updates, and manage the changes transparently and explicitly. Proper versioning should be a part of all datamodels. In fact, the NCBI has recently phased out its internal unique identifiers – the GI number – in favour of accession-number.version IDs everywhere.
+  1. When searching, or for general use, you can (and should) **omit the version number**, i.e. use NP_010227 or P39678 not NP_010227.1 resp. P39678.1. This way the database system will resolve the identifier to the most current, highest version number (unless you want the older one, of course).
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Note down the RefSeq ID and the UniProt (SwissProt) ID of Mbp1 in your journal.
+  * Follow the link to the RefSeq entry [NP_010227.1](https://www.ncbi.nlm.nih.gov/protein/NP_010227.1).
+  * Explore the page and explore these links (note the contents in your journal):
+    * Under "Analyze this Sequence": [Identify Conserved Domains](https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi?INPUT_TYPE=live&SEQUENCE=NP_010227.1)
+    * Under "Protein 3D Structure": [See all 3 structures...](https://www.ncbi.nlm.nih.gov/structure?Db=structure&DbFrom=protein&Cmd=Link&LinkName=protein_structure&LinkReadableName=Structure&IdsFromResult=6320147)
+    * Under "Pathways for the MBP1 gene": [Cell cycle - yeast](https://www.ncbi.nlm.nih.gov/biosystems/958?Sel=geneid:851503#show=genes)
+    * Under "Related information": [Homologs of the MBP1 gene](https://www.ncbi.nlm.nih.gov/homologene?Db=homologene&Cmd=Retrieve&list_uids=34457)
+    
+As we see, this is a good start page to explore all kinds of databases at the NCBI via cross-references.
+```
+
+
+ 
+## PubMed
+
+Arguably one of the most important databases in the life sciences is PubMed and this is a good time to look at PubMed in a bit more detail.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Return back to the [MBP1 RefSeq record](https://www.ncbi.nlm.nih.gov/protein/NP_010227.1.
+  * Find the PubMed link under **Related information** in the right-hand margin and explore it. These are links that are directly related to the NP_010227 sequence in the database.
+  * Next follow the link to ["PubMed (Weighted)"](https://www.ncbi.nlm.nih.gov/pubmed?LinkName=protein_pubmed_weighted&from_uid=6320147) which applies a weighting algorithm to find broadly relevant information - an example of literature data mining. PubMed(weighted) appears to give a pretty good overview of systems-biology type, cross-sectional and functional information.
+  
+  But it does not find all Mbp1 related literature.
+
+  1. On any of the PubMed pages open the Advanced query page and study the keywords that apply to PubMed searches. These are actually quite important and useful to remember. Make yourself familiar with the section on [Search field descriptions and tags](https://www.ncbi.nlm.nih.gov/books/NBK3827/) in the PubMed help document, (in particular [DP], [AU], [TI], and [TA]), how you use the History to combine searches, and the use of AND, OR, NOT and brackets. Understand how you can restrict a search to reviews only, and what the link to **Related citations**... is useful for^[A good way to consolidate your knowledge is to summarize it for everyone on the Entrez page of the Student Wiki, or enhance the information you find there.].
+  1. Now find publications from anywhere in PubMed with Mbp1 **in the title**. In the result list, follow the links for the two Biochemistry papers, by Taylor et al. (2000) and by Deleeuw et al. (2008). Download the PDFs, these manuscripts will be needed in a later unit.
+```
+
+ 
+## Digression: A "bookmarklet" to access literature
+
+PubMed usually includes links to full-text articles, but these are often behind a paywall, even though we have access through our library system (one of the top three in the world incidentally). Here is a bookmarklet (a portmanteau of "bookmark" and "applet") to seamlessly redirect from a paywall page to full access thorugh our library's "my access" system. The key is to apply a bit of code that "rewrites" the original URL.
+
+In your browser, create a bookmark to anything, call it "MyAccess"", and put it into your bookmarks bar for convenience. Then edit it: replace the URL of the bookmark with the following snip of Javascript:
+
+```{r eval=FALSE}
+javascript:(function(){var url=window.location.href;var re=/\/([\w.]+)\/(.*$)/;var match=url.match(re);var newURL="http://"+match[1]+".myaccess.library.utoronto.ca/"+match[2];window.location.href=newURL;})();void 0
+```
+
+No line breaks!
+
+Then try it. Go to the following article from outside the university network ...
+
+ http://science.sciencemag.org/content/303/5659/788.long
+
+... you should see the abstract but you can't view the full text without being an AAAS member. Then click on your bookmarklet. It should automatically rewrite the URL, take you to the UofT login screen, and take you to a page with full access to the article.
+
+I hope you find this as useful as I do. The strategy lends itself to other nice ideas.
+
+
+ 
+## Original Information and Annotation Transfer
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+In the BIN-Storing_data unit you have found the protein of MYSPE that is most similar to yeast Mbp1, in MYSPE. Navigate to the NCBI Protein page for the RefSeq entry of this protein. Explore the links that go out from the page. Assess which resources are independently useful, and which resources merely recapitulate information that relates to yeast Mbp1, the protein that you originally searched with. The goal is to develop a sense for where a page like this one collects original information, and where it merely acts as a record of annotation transfer.
+```
+
+ 
+## Self-evaluation
+
+## Further reading, links and resources
+  
+
+
+ 
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-10-02<br>
+Version: 1.0.1<br>
+**Version history**:<br>
+1.0.1 Removed NCBI linkrot<br>
+1.0 Completed to first live version<br>
+0.1 First stub<br>
+``` 

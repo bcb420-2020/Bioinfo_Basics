@@ -1,0 +1,67 @@
+#Abstractions for Bioinformatics {#abstractions}
+(Introduction to nature of abstractions; examples; abstractions for biology; structuring abstractions: controlled vocabularies and ontologies.)
+ 
+## Overview 
+###Abstract:
+This unit comprises introductory notes on the nature of abstractions with an example from the art of tying ties. We review typical abstractions for biology and discuss options for structuring labels and relationships.
+
+### Objectives:
+This unit will:
+
+  * introduce the concept of an "abstraction", as applied to making concepts about biology computable;
+  * illustrate with examples;
+  * discuss principles of how to address issues of uniqueness and structuring of abstractions.
+  
+### Outcomes:
+After working through this unit you:
+
+  * can describe what the purpose of an abstraction is;
+  * have encountered common abstractions for bioinformatics;
+  * are able to come up with examples for "numerically controlled vocabularies" and "synonym constrained vocabularies";
+  * have thought about an abstraction for a complex biological situation;
+  * are able to contrast your solution to the canonical approach.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+You need the following preparation before beginning this unit. If you are not familiar with this material from courses you took previously, you need to prepare yourself from other information sources:
+
+Biomolecules: The molecules of life; nucleic acids and amino acids; the genetic code; protein folding; post-translational modifications and protein biochemistry; membrane proteins; biological function.
+
+This unit builds on material covered in the following prerequisite units:<br>
+
+[ABC-BIN-Preparation (Bioinformatics Course Preparation)]()<br>
+[BIN-MYSPE (MYSPE (My Species))](http://steipe.biochemistry.utoronto.ca/abc/index.php/BIN-MYSPE)<br>
+[FND-Cell_cycle (The Yeast Cell Cycle)](http://steipe.biochemistry.utoronto.ca/abc/index.php/FND-Cell_cycle)<br>
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+
+  * Read the introductory notes on ["Abstractions" for Bioinformatics](boris_docs/BIN-Abstractions.pdf).
+  * It is common for transcription factors to stimulate or repress the expression of other transcription factors, which in turn act on the expression of more proteins. In addition, proteins that catalyze post-translational modifications can play an important role in such regulation. Assume you would like to store facts about this situation. What abstraction could you design? 
+    * Think about the actors and their roles in this process. 
+    * Then define what is essential.The common abstraction for this is a "gene regulatory network", a graph in which the nodes are gene labels and the edges define a relationship that is either activating or repressing. The individual facts are represented as the existence of nodes and edges, and as attributes to nodes and edges. 
+    * Now ask yourself: can this abstraction represent all types of facts? Is this abstraction what you came up with? Is your idea different? Better?
+
+```
+
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-09-19<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 Completed to first live version<br>
+0.1 First stub<br>
+``` 

@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    toolbar:
+      position: fixed
+    view : https://github.com/bcb420-2020/Bioinfo_Basics/blob/master/%s
+    history : https://github.com/bcb420-2020/Bioinfo_Basics/commit/master/%s
+    download: ["epub"]
+    new_session: no
+bookdown::epub_book: default
+

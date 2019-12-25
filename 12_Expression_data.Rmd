@@ -1,0 +1,172 @@
+# Integrator Unit: Expression Data
+(Integrator unit: select, clean and normalize expression data)
+
+## Overview
+### Abstract:
+This page integrates material from the learning units and defines a task for selecting and normalizing human expression data.
+
+### Deliverables:
+Integrator unit: Deliverables can be submitted for course marks. See below for details.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[RPR-GEO2R (GEO2R)](#geo2r)<br>
+
+ 
+
+## Evaluation
+
+Your progress and outcomes of this "Integrator Unit" will be one of the topics of the first oral exam for BCB420/JTB2020. That oral exam will be worth 20% of your term grade.^[Note: oral exams will focus on the content of Integrator Units, but will also cover material that leads up to it. All exams in this course are cumulative.].
+
+  * Work through the tasks described below.
+  * Note that there are several tasks that need to be coordinated with your teammates and classmates. This is necessary to ensure the feature sets can be merged in the second phase of the course. Be sure to begin this coordination process in time.
+  * Remember to document your work in your journal concurrently with your progress. Journal entries that are uploaded in bulk at the end of your work will not be considered evidence of ongoing engagement.
+  * Your task will involve writing an R script. Place your script code in a subpage of your User page on the Student Wiki^[Use the appropriate GeSHi code markup] and link to the page from your Journal.
+  * Schedule an oral exam by editing the signup page on the Student Wiki. You must have signed-up for an exam slot before 20:00 on the day before your exam.
+  * Your work must be complete before 20:00 on the day before your exam.
+
+ 
+
+Your task is to select an expression dataset that is suitable for use as a "feature" for human genes in machine learning. Currently, expression data are collected with microarrays and from RNAseq experiments. If we want to use different experiments in a computational experiment, we need to consider very carefully how to prepare comparable values.
+
+To begin, please read the following paper:
+
+Taroni & Greene (2017) Cross-platform normalization enables machine learning model training on microarray and RNA-seq data simultaneously (BioRχiv doi: https://doi.org/10.1101/118349)
+
+Our ultimate goal is to explore machine learning approaches to evaluate systems membership of genes. For this, we need features that annotate genes, are suitable for machine learning, and are informative regarding the function of the gene. Expression profiles have great potential for this, since genes that collaborate are often (although not always) co-regulated - either directly by being part of the same gene regulatory pathways, or indirectly by being similarly responsive to environmental conditions or other stimuli. In order to build "good" features, the data need to be of good quality, and informative for our purpose. We need expression datasets -
+
+  * with good coverage;
+  * not much older than ten years (quality!);
+  * with sufficient numbers of replicates;
+  * collected under interesting conditions;
+  * mapped to unique human gene identifiers.
+
+For this integrator unit you will prepare a script that will produce one reference and one experimental feature data set for human genes (from the same experiment).
+
+To avoid mistakes in praparing the dataset, discuss your approach with your team members, or post questions on the mailing list. You are encouraged to discuss strategies with anyone however the script you submit must be entirely your own and you must not copy code (apart from the script template) from elsewhere.
+
+Read the entire set of requirements and parameters carefully before you begin. I have posted sample code that covers some of the aspects in the ./inst/scripts/ directory of the zu project/package repository.
+
+
+ 
+## Select an Expression Data Set
+ 
+```{block, type="rmd-task"}
+Navigate to the GEO expression dataset search page and select an expression dataset you will work with.
+```
+ 
+**1** – Choose a dataset of native, healthy human cells or tissue ...<br>
+If your dataset is not native, healthy human tissue, you will not receive credit. An exception can be made if you feel that you have discovered an experiment on different cells that will be particularly useful regardless. If so, contact me for special permission.
+
+**2** – Choose an interesting experiment ...<br>
+If we are to use these features to assess system membership, their expression response to the experimental conditions must reflect some biological property. Ideally, this will be a physiological response of some sort, disease states may be less suited to this question. It is your task to reflect on this question and choose accordingly.
+
+**3** – Make sure the coverage is as complete as possible ...<br>
+Experiments that measure expression for only a small subset of genes are not suitable.
+
+**4** – Choose high-quality experiments ...<br>
+The experiments should be performed with technical replicates (the more the better), and you will average the replicates as you prepare the feature data set. It also should be performed with mature experimental platforms, according to best-practice procedures; therefore we should choose recent experiments (not older than ten years). As above, contact me for special permission if you want to deviate from this requirement.
+
+**Claim the dataset on the dataset signup page of the Student Wiki.**
+
+## Clean the data and map to HUGO symbols
+ 
+```{block, type="rmd-task"}
+Develop your code in an R script that you submit as part of this task. The script should implement the following workflow:
+```
+
+**1** – Download the data ...<br>
+Do not work on manually downloaded data, but use the GEOquery Bioconductor package. (Obviously, do not re-download the dataset every time you run the script, but figure out a strategy to download only when necessary.) Sample code is in the R code associeted with the RPR-GEO2R learning unit.
+
+**2** – Assess ...<br>
+Compute overview statistics to assess data quality for the control and test conditions in your dataset. You will only submit one feature for the control condition, and one feature for the test condition - so you can remove columns that correspond to other conditions from the dataset at this point.
+
+**3** – Map ...<br>
+Your dataset probably does not contain HUGO gene symbols as row identifiers - you need to map rows to symbols. How? Figure that out in collaboration with your team and the rest of the class. It is crucial that everyone maps to the same gene symbols. I have prepared a reference set of symbols in the zu repository. It is in inst/extdata and the corresponding script is in inst/scripts. But you will need to figure out how to handle unmapped rows (these are likely outdated aliases of current symbols, or possibly deprecated ORFs). You also need to figure out what to do with rows that map to more than one symbol (perhaps the sequenced fragment was not unique, or the microarray spot hybridizes to more than one gene.) Finally you need to figure out what to do with multiple rows that map to the same symbol (these could be splice variants, or probes that are designed as internal controls). In any case: you, your team, and the entire class have to come up with a consensus how these situations will be handled correctly. And your code must implement the consensus. Simply removing these cases from the dataset is not satisfactory, and if your code does not correctly implement the consensus approach you may not receive credit.
+
+**4** – Clean ...<br>
+There are two considerations you need to go through: removing outliers, and imputing missing data. Whether one should remove outliers is a matter of debate^[See [this](https://stats.stackexchange.com/questions/200534/is-it-ok-to-remove-outliers-from-data/200923) conversation on cross-validated for example.], but if one has well founded reasons to believe a measurement error has occurred, the measurement should indeed be discarded. For imputation strategies, see the RPR-Data-Imputation learning unit. As with the map-rows-to-gene-symbols task, we need a class-wide consensus on how to clean the data and your script must correctly implement that consensus.
+
+**5** – Average ...<br>
+Calculate robust estimates for expression values from the replicates in your dataset.
+
+## Apply Quantile Normalization (QN)
+ 
+```{block, type="rmd-task"}
+Next, transform the data with QN. The process is motivated and described in Taroni (2017), but once again there may be parameters to respect and we need a class-consensus on how to do this correctly. Coordinate as above.
+
+The final result of your script needs to be a dataframe with two numeric columns, named <GSET-ID>.ctrl and <GSET-ID>.test, all rows of the HUGO symbols must exist in the exact order of the HUGO symbol reference vector, and the HUGO symbols must be defined as rownames of the dataframe.
+```
+
+Example ...
+If you are working on GSE01234 and you have mapped symbols DDD, AAA, and MMM, but not probe 1234_at, your initial dataframe after processing might look like this:
+
+           sym     ctrl     test
+1200_at    DDD 69.40936 65.12871
+1234_at   <NA> 58.08945 82.15397
+278_at     AAA 65.62096 63.12460
+112358_at  MMM 46.75833 58.08034
+
+Assume HUGOSymbols contains the four symbols AAA, BBB, DDD, and MMM. Your final dataframe, according to the specifications, has to look like this:
+
+    GSE01234.ctrl GSE01234.test
+AAA      65.62096      63.12460
+BBB            NA            NA
+DDD      69.40936      65.12871
+MMM      46.75833      58.08034
+
+Note that the rownames of the final dataframe are **exactly the same** as the HUGOSymbols vector. This is necessary so we can later merge our data across all expression datasets.
+
+
+I expect that you have actually produced such a dataset and have it available on your computer for reference. Do not upload this data to Github.
+If your script does not produce a data set according to these exact specifications, this must be clearly stated in the script.
+
+ 
+
+ 
+## Interpret, and document
+ 
+The steps above conclude the actual data preparation. Be prepared to answer the following questions:
+
+```{block, type="rmd-task"}
+  * What are the control and test conditions of the dataset?
+  * Why is the dataset of interest to our systems assessment task?
+  * Were there expression values that were not unique for specific genes? How did you handle these?
+  * Were there expression values that could not be mapped to current HUGO symbols?
+  * How many outliers were removed, how many datapoints were imputed?
+  * How did you handle replicates?
+  * What is the final coverage of your dataset?
+```
+
+Make sure your script contains the complete workflow, is fully commented, and contains all essential elements suggested by the script template^[Refer to the script template inst/extdata/scripts/scriptTemplate.R in the _zu_ project repository.]. This is a collaborative project - form matters.
+
+
+## Further reading, links and resources
+  * [Taroni & Greene (2017)](https://www.biorxiv.org/content/10.1101/118349v2) Cross-platform normalization enables machine learning model training on microarray and RNA-seq data simultaneously (BioRχiv doi: https://doi.org/10.1101/118349)
+  * Quantile Normalization is provided in the [preprocessCore Bioconductor package](https://bioconductor.org/packages/release/bioc/html/preprocessCore.html):
+    * Bolstad et al. (2003) A comparison of normalization methods for high density oligonucleotide array data based on variance and bias. Bioinformatics 19:185-93. (pmid: 12538238)[PubMed](https://www.ncbi.nlm.nih.gov/pubmed/12538238),[DOI](https://academic.oup.com/bioinformatics/article/19/2/185/372664) 
+  * [RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR](https://master.bioconductor.org/packages/release/workflows/html/RNAseq123.html) Bioconductor workflow for RNAseq differential expression analysis with **edgeR**.
+  * [RNA-seq workflow: gene-level exploratory analysis and differential expression](https://master.bioconductor.org/packages/release/workflows/html/rnaseqGene.html) Bioconductor workflow for RNAseq differential expression analysis with DEseq2.
+  * [HUGO Gene Nomenclature Committee](https://www.genenames.org/) - the authoritative information source for gene symbols. Includes search functions for synonyms. aliases and other information, as well as downloadable data.
+  * Good discussion of current microarray normalization strategies, as well as a proposal how to apply QN to case/control datasets:
+    * Cheng et al. (2016) CrossNorm: a novel normalization strategy for microarray data in cancers. Sci Rep 6:18898. (pmid: 26732145)[PubMed](https://www.ncbi.nlm.nih.gov/pubmed/26732145),[DOI](https://www.nature.com/articles/srep18898)  
+  * Quackenbusch's paper is now old, but an often-cited standard reference in the field:
+    * Quackenbush (2002) Microarray data normalization and transformation. Nat Genet 32 Suppl:496-501. (pmid: 12454644) [PubMed](https://www.ncbi.nlm.nih.gov/pubmed/12454644),[DOI](https://www.nature.com/articles/ng1032z) 
+
+ 
+
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2018-01-26<br>
+Version: 1.1<br>
+**Version history**:<br>
+1.1 Some resources and further reading added
+1.0 First live version
+``` 
+ 

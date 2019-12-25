@@ -1,0 +1,76 @@
+#GEO2R {#geo2r}
+(Programming for analysis of GEO datasets)
+
+##Overview
+
+###Abstract:
+This unit demonstrates accessing and working with datasets downloaded from NCBI GEO.
+
+### Objectives:
+This unit will:
+
+  * teach downloading and annotating GEO data, and performing differential expression analysis.
+
+###Outcomes:
+
+After working through this unit you:
+
+  * can access GEO data;
+  * are familar with the structure of GEO expression sets;
+  * can annotate the data, perform differential expression anlysis and critically evaluate the results.
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+You need the following preparation before beginning this unit. If you are not familiar with this material from courses you took previously, you need to prepare yourself from other information sources:
+
+The Central Dogma: Regulation of transcription and translation; protein biosynthesis and degradation; quality control.
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-EXPR-Multiple_testing (Multiple Testing and Significance)](#multiple-testing)<br>
+
+## Evaluation
+
+This learning unit can be evaluated for a maximum of 6 marks. If you want to submit the tasks for this unit for credit:
+
+  * Create a new page on the student Wiki as a subpage of your User Page.
+  * There are a number of tasks in which you are explicitly asked you to submit code or other text for credit. Put all of these submission on this one page.
+When you are done with everything, add the following category tag to the end of page: [[Category:EVAL-RPR-GEO2R]].
+  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+
+```{block, type="rmd-task"}
+  * Open RStudio and load the ABC-units R project. If you have loaded it before, choose File → Recent projects → ABC-Units. If you have not loaded it before, follow the instructions in the RPR-Introduction unit.
+  * Choose Tools → Version Control → Pull Branches to fetch the most recent version of the project from its GitHub repository with all changes and bug fixes included.
+  * Type init() as requested.
+  * Open the file RPR-GEO2R.R and follow the instructions.
+
+ 
+**Note**: take care that you understand all of the code in the script. Evaluation in this course is cumulative and you may be asked to explain any part of code.
+```
+
+## Self-evaluation
+
+## Further reading, links and resources
+This unit has focussed on microarray analysis with GEO2R. For RNAseq experiments, refer to the excellent [Bioconductor RNAseq analysis tutorial](https://master.bioconductor.org/packages/release/workflows/html/RNAseq123.html). 
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-11-11<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 first live version<br>
+0.1 First stub<br>
+``` 

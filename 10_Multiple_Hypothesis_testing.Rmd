@@ -1,0 +1,59 @@
+# Multiple Testing and Significance {#multiple-testing}
+(Multiple testing problem. Concepts, Bonferroni correction and FDR)
+
+## Overview
+### Abstract:
+
+Searching for significant effects in high-throughput experiments changes the statistical odds of finding highly unusual outcomes. This needs to be properly corrected, especially in situations like expression analysis where we observe tens of thousands of measurements simultaneously and need to determine which ones should be followed up on.
+
+### Objectives:
+
+This unit will:
+
+  * introduce the concepts of probability correction with Family Wise Error rate and False Discovery Rate.
+
+### Outcomes:
+
+After working through this unit you:
+
+  * are aware of the need to correct significance levels in situations with multiple observations;
+  * are familar with the ideas of the Bonferroni correction and control with the False Discovery Rate (FDR).
+
+### Deliverables:
+**Time management**: Before you begin, estimate how long it will take you to complete this unit. Then, record in your course journal: the number of hours you estimated, the number of hours you worked on the unit, and the amount of time that passed between start and completion of this unit.
+
+**Journal**: Document your progress in your Course Journal. Some tasks may ask you to include specific items in your journal. Don't overlook these.
+
+**Insights**: If you find something particularly noteworthy about this unit, make a note in your insights! page.
+
+### Prerequisites:
+
+This unit builds on material covered in the following prerequisite units:
+
+[BIN-EXPR-DE (Discovering Differentially Expressed Genes)](#de-genes)<br>
+FND-STA-Significance (Significance)
+
+`r task_counter <- task_counter + 1`
+## Task `r task_counter`
+ 
+```{block, type="rmd-task"}
+Read the introductory notes on [multiple testing](boris_docs/BIN-EXPR-Multiple_testing.pdf).
+```
+ 
+## Self-evaluation
+
+## Further reading, links and resources
+ 
+ 
+**If in doubt, ask!**<br>
+If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.
+
+```{block2, type="rmd-original-history"}
+<br>**Author**: Boris Steipe <boris.steipe@utoronto.ca> <br>
+**Created**: 2017-08-05<br>
+**Modified**: 2017-11-10<br>
+Version: 1.0<br>
+**Version history**:<br>
+1.0 first live version<br>
+0.1 First stub<br>
+``` 

@@ -1,0 +1,69 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+/* CUSTOM BLOCKS */
+
+.rmd-task {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  #9ad4fe  url("images/iconfinder_document_309087.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color: #9ad4fe;
+}
+.rmd-task:before {
+  color: #fcf403;
+  font-size: 24px;
+  content: "Task";
+}
+
+.rmd-caution {
+  padding: 0em 0em 0em 3em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/iconfinder_attention_309101.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#ff6347;
+}
+.rmd-caution:before {
+  color: #ff6347;
+  font-size: 24px;
+  content: "Caution";
+}
+
+.rmd-original-history {
+  padding: 0em 0em 0em 4em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/cc_icon.png") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#000000;
+}
+.rmd-original-history:before {
+  color: #ff6347;
+  font-size: 24px;
+  content: "About";
+}
+
+
+.rmd-troubleshooting {
+  padding: 0em 0em 0em 4em;
+  margin-bottom: 2px;
+  background:  /*#FFFF00*/  url("images/iconfinder_support_309071") left center/3em no-repeat /*!important*/;
+  border-style:solid;
+  border-color:#000000;
+}
+.rmd-troubleshooting:before {
+  color: #ff6347;
+  font-size: 24px;
+  content: "What could possibly go wrong?";
+}

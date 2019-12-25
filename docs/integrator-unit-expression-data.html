@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Integrator Unit: Expression Data | BCB420 - Computational System Biology</title>
+  <meta name="description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Integrator Unit: Expression Data | BCB420 - Computational System Biology" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Integrator Unit: Expression Data | BCB420 - Computational System Biology" />
+  
+  <meta name="twitter:description" content="Prerequisite work for U of T course BCB420 - Computational System Biology" />
+  
+
+<meta name="author" content="Boris Steipe" />
+
+
+<meta name="date" content="2019-01-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="geo2r.html"/>
+<link rel="next" href="about.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Unit 1 - Bioinfo Prep</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="abstractions.html"><a href="abstractions.html"><i class="fa fa-check"></i><b>1</b> Abstractions for Bioinformatics</a><ul>
+<li class="chapter" data-level="1.1" data-path="abstractions.html"><a href="abstractions.html#overview"><i class="fa fa-check"></i><b>1.1</b> Overview</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="abstractions.html"><a href="abstractions.html#abstract"><i class="fa fa-check"></i><b>1.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="1.1.2" data-path="abstractions.html"><a href="abstractions.html#objectives"><i class="fa fa-check"></i><b>1.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="1.1.3" data-path="abstractions.html"><a href="abstractions.html#outcomes"><i class="fa fa-check"></i><b>1.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="1.1.4" data-path="abstractions.html"><a href="abstractions.html#deliverables"><i class="fa fa-check"></i><b>1.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="1.1.5" data-path="abstractions.html"><a href="abstractions.html#prerequisites"><i class="fa fa-check"></i><b>1.1.5</b> Prerequisites:</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="storing-data.html"><a href="storing-data.html"><i class="fa fa-check"></i><b>2</b> Storing Data</a><ul>
+<li class="chapter" data-level="2.1" data-path="storing-data.html"><a href="storing-data.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> Overview</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="storing-data.html"><a href="storing-data.html#abstract-1"><i class="fa fa-check"></i><b>2.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="2.1.2" data-path="storing-data.html"><a href="storing-data.html#objectives-1"><i class="fa fa-check"></i><b>2.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="2.1.3" data-path="storing-data.html"><a href="storing-data.html#outcomes-1"><i class="fa fa-check"></i><b>2.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="2.1.4" data-path="storing-data.html"><a href="storing-data.html#deliverables-1"><i class="fa fa-check"></i><b>2.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="2.1.5" data-path="storing-data.html"><a href="storing-data.html#prerequisites-1"><i class="fa fa-check"></i><b>2.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="storing-data.html"><a href="storing-data.html#evaluation"><i class="fa fa-check"></i><b>2.2</b> Evaluation</a></li>
+<li class="chapter" data-level="2.3" data-path="storing-data.html"><a href="storing-data.html#text-files"><i class="fa fa-check"></i><b>2.3</b> Text files</a></li>
+<li class="chapter" data-level="2.4" data-path="storing-data.html"><a href="storing-data.html#spreadsheets"><i class="fa fa-check"></i><b>2.4</b> Spreadsheets</a></li>
+<li class="chapter" data-level="2.5" data-path="storing-data.html"><a href="storing-data.html#r"><i class="fa fa-check"></i><b>2.5</b> R</a></li>
+<li class="chapter" data-level="2.6" data-path="storing-data.html"><a href="storing-data.html#mysql-and-friends"><i class="fa fa-check"></i><b>2.6</b> MySQL and friends</a></li>
+<li class="chapter" data-level="2.7" data-path="storing-data.html"><a href="storing-data.html#store-data"><i class="fa fa-check"></i><b>2.7</b> Store Data</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="storing-data.html"><a href="storing-data.html#a-protein-datamodel"><i class="fa fa-check"></i><b>2.7.1</b> A protein datamodel</a></li>
+<li class="chapter" data-level="2.7.2" data-path="storing-data.html"><a href="storing-data.html#implementing-the-data-model-in-r"><i class="fa fa-check"></i><b>2.7.2</b> Implementing the Data Model in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="storing-data.html"><a href="storing-data.html#further-reading-links-and-resources"><i class="fa fa-check"></i><b>2.8</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html"><i class="fa fa-check"></i><b>3</b> Bioinformatics Databases</a><ul>
+<li class="chapter" data-level="3.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> Overview</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#abstract-2"><i class="fa fa-check"></i><b>3.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="3.1.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#objectives-2"><i class="fa fa-check"></i><b>3.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="3.1.3" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#outcomes-2"><i class="fa fa-check"></i><b>3.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="3.1.4" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#deliverables-2"><i class="fa fa-check"></i><b>3.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="3.1.5" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#prerequisites-2"><i class="fa fa-check"></i><b>3.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="bioinfo-databases.html"><a href="bioinfo-databases.html#further-reading-links-and-resources-1"><i class="fa fa-check"></i><b>3.2</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ncbi-services.html"><a href="ncbi-services.html"><i class="fa fa-check"></i><b>4</b> The NCBI Database and Services</a><ul>
+<li class="chapter" data-level="4.1" data-path="ncbi-services.html"><a href="ncbi-services.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> Overview</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="ncbi-services.html"><a href="ncbi-services.html#abstract-3"><i class="fa fa-check"></i><b>4.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="4.1.2" data-path="ncbi-services.html"><a href="ncbi-services.html#objectives-3"><i class="fa fa-check"></i><b>4.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ncbi-services.html"><a href="ncbi-services.html#outcomes-3"><i class="fa fa-check"></i><b>4.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="4.1.4" data-path="ncbi-services.html"><a href="ncbi-services.html#deliverables-3"><i class="fa fa-check"></i><b>4.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="4.1.5" data-path="ncbi-services.html"><a href="ncbi-services.html#prerequisites-3"><i class="fa fa-check"></i><b>4.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ncbi-services.html"><a href="ncbi-services.html#evaluation-1"><i class="fa fa-check"></i><b>4.2</b> Evaluation</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ncbi-services.html"><a href="ncbi-services.html#short-report-option"><i class="fa fa-check"></i><b>4.2.1</b> Short Report option</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ncbi-services.html"><a href="ncbi-services.html#quiz-option"><i class="fa fa-check"></i><b>4.2.2</b> Quiz option</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ncbi-services.html"><a href="ncbi-services.html#option-to-write-a-self-evaluation-question"><i class="fa fa-check"></i><b>4.2.3</b> Option to write a “Self-Evaluation Question”</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ncbi-services.html"><a href="ncbi-services.html#entrez"><i class="fa fa-check"></i><b>4.3</b> Entrez</a></li>
+<li class="chapter" data-level="4.4" data-path="ncbi-services.html"><a href="ncbi-services.html#protein-sequence"><i class="fa fa-check"></i><b>4.4</b> Protein Sequence</a></li>
+<li class="chapter" data-level="4.5" data-path="ncbi-services.html"><a href="ncbi-services.html#pubmed"><i class="fa fa-check"></i><b>4.5</b> PubMed</a></li>
+<li class="chapter" data-level="4.6" data-path="ncbi-services.html"><a href="ncbi-services.html#digression-a-bookmarklet-to-access-literature"><i class="fa fa-check"></i><b>4.6</b> Digression: A “bookmarklet” to access literature</a></li>
+<li class="chapter" data-level="4.7" data-path="ncbi-services.html"><a href="ncbi-services.html#original-information-and-annotation-transfer"><i class="fa fa-check"></i><b>4.7</b> Original Information and Annotation Transfer</a></li>
+<li class="chapter" data-level="4.8" data-path="ncbi-services.html"><a href="ncbi-services.html#self-evaluation"><i class="fa fa-check"></i><b>4.8</b> Self-evaluation</a></li>
+<li class="chapter" data-level="4.9" data-path="ncbi-services.html"><a href="ncbi-services.html#further-reading-links-and-resources-2"><i class="fa fa-check"></i><b>4.9</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="misc-databases.html"><a href="misc-databases.html"><i class="fa fa-check"></i><b>5</b> Miscellaneous Databases for Bioinformatics</a><ul>
+<li class="chapter" data-level="5.1" data-path="misc-databases.html"><a href="misc-databases.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> Overview</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="misc-databases.html"><a href="misc-databases.html#abstract-4"><i class="fa fa-check"></i><b>5.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="5.1.2" data-path="misc-databases.html"><a href="misc-databases.html#objectives-4"><i class="fa fa-check"></i><b>5.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="5.1.3" data-path="misc-databases.html"><a href="misc-databases.html#outcomes-4"><i class="fa fa-check"></i><b>5.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="5.1.4" data-path="misc-databases.html"><a href="misc-databases.html#deliverables-4"><i class="fa fa-check"></i><b>5.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="5.1.5" data-path="misc-databases.html"><a href="misc-databases.html#prerequisites-4"><i class="fa fa-check"></i><b>5.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="misc-databases.html"><a href="misc-databases.html#sgd---a-yeast-model-organism-database"><i class="fa fa-check"></i><b>5.2</b> SGD - a Yeast Model Organism Database</a></li>
+<li class="chapter" data-level="5.3" data-path="misc-databases.html"><a href="misc-databases.html#string---functional-interactions"><i class="fa fa-check"></i><b>5.3</b> STRING - functional interactions</a></li>
+<li class="chapter" data-level="5.4" data-path="misc-databases.html"><a href="misc-databases.html#self-evaluation-1"><i class="fa fa-check"></i><b>5.4</b> Self-evaluation</a></li>
+<li class="chapter" data-level="5.5" data-path="misc-databases.html"><a href="misc-databases.html#further-reading-links-and-resources-3"><i class="fa fa-check"></i><b>5.5</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="data-integration.html"><a href="data-integration.html"><i class="fa fa-check"></i><b>6</b> Data Integration</a><ul>
+<li class="chapter" data-level="6.1" data-path="data-integration.html"><a href="data-integration.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> Overview</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="data-integration.html"><a href="data-integration.html#abstract-5"><i class="fa fa-check"></i><b>6.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="6.1.2" data-path="data-integration.html"><a href="data-integration.html#objectives-5"><i class="fa fa-check"></i><b>6.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="6.1.3" data-path="data-integration.html"><a href="data-integration.html#outcomes-5"><i class="fa fa-check"></i><b>6.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="6.1.4" data-path="data-integration.html"><a href="data-integration.html#deliverables-5"><i class="fa fa-check"></i><b>6.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="6.1.5" data-path="data-integration.html"><a href="data-integration.html#prerequisites-5"><i class="fa fa-check"></i><b>6.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="data-integration.html"><a href="data-integration.html#self-evaluation-2"><i class="fa fa-check"></i><b>6.2</b> Self-evaluation</a></li>
+<li class="chapter" data-level="6.3" data-path="data-integration.html"><a href="data-integration.html#further-reading-links-and-resources-4"><i class="fa fa-check"></i><b>6.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="expression-analysis.html"><a href="expression-analysis.html"><i class="fa fa-check"></i><b>7</b> Expression Analysis</a><ul>
+<li class="chapter" data-level="7.1" data-path="expression-analysis.html"><a href="expression-analysis.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> Overview</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="expression-analysis.html"><a href="expression-analysis.html#abstract-6"><i class="fa fa-check"></i><b>7.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="7.1.2" data-path="expression-analysis.html"><a href="expression-analysis.html#objectives-6"><i class="fa fa-check"></i><b>7.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="7.1.3" data-path="expression-analysis.html"><a href="expression-analysis.html#outcomes-6"><i class="fa fa-check"></i><b>7.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="7.1.4" data-path="expression-analysis.html"><a href="expression-analysis.html#deliverables-6"><i class="fa fa-check"></i><b>7.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="7.1.5" data-path="expression-analysis.html"><a href="expression-analysis.html#prerequisites-6"><i class="fa fa-check"></i><b>7.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="expression-analysis.html"><a href="expression-analysis.html#self-evaluation-3"><i class="fa fa-check"></i><b>7.2</b> Self-evaluation</a></li>
+<li class="chapter" data-level="7.3" data-path="expression-analysis.html"><a href="expression-analysis.html#further-reading-links-and-resources-5"><i class="fa fa-check"></i><b>7.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="geo.html"><a href="geo.html"><i class="fa fa-check"></i><b>8</b> The NCBI GEO Gene Expression database</a><ul>
+<li class="chapter" data-level="8.1" data-path="geo.html"><a href="geo.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> Overview</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="geo.html"><a href="geo.html#abstract-7"><i class="fa fa-check"></i><b>8.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="8.1.2" data-path="geo.html"><a href="geo.html#objectives-7"><i class="fa fa-check"></i><b>8.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="8.1.3" data-path="geo.html"><a href="geo.html#outcomes-7"><i class="fa fa-check"></i><b>8.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="geo.html"><a href="geo.html#deliverables-7"><i class="fa fa-check"></i><b>8.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="8.1.5" data-path="geo.html"><a href="geo.html#prerequisites-7"><i class="fa fa-check"></i><b>8.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="geo.html"><a href="geo.html#self-evaluation-4"><i class="fa fa-check"></i><b>8.2</b> Self-evaluation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="de-genes.html"><a href="de-genes.html"><i class="fa fa-check"></i><b>9</b> Discovering Differentially Expressed Genes</a><ul>
+<li class="chapter" data-level="9.1" data-path="de-genes.html"><a href="de-genes.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> Overview</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="de-genes.html"><a href="de-genes.html#abstract-8"><i class="fa fa-check"></i><b>9.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="9.1.2" data-path="de-genes.html"><a href="de-genes.html#objectives-8"><i class="fa fa-check"></i><b>9.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="9.1.3" data-path="de-genes.html"><a href="de-genes.html#outcomes-8"><i class="fa fa-check"></i><b>9.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="9.1.4" data-path="de-genes.html"><a href="de-genes.html#deliverables-8"><i class="fa fa-check"></i><b>9.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="9.1.5" data-path="de-genes.html"><a href="de-genes.html#prerequisites-8"><i class="fa fa-check"></i><b>9.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>9.2</b> GEO2R</a></li>
+<li class="chapter" data-level="9.3" data-path="de-genes.html"><a href="de-genes.html#self-evaluation-5"><i class="fa fa-check"></i><b>9.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="9.4" data-path="de-genes.html"><a href="de-genes.html#further-reading-links-and-resources-6"><i class="fa fa-check"></i><b>9.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="multiple-testing.html"><a href="multiple-testing.html"><i class="fa fa-check"></i><b>10</b> Multiple Testing and Significance</a><ul>
+<li class="chapter" data-level="10.1" data-path="multiple-testing.html"><a href="multiple-testing.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> Overview</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="multiple-testing.html"><a href="multiple-testing.html#abstract-9"><i class="fa fa-check"></i><b>10.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="10.1.2" data-path="multiple-testing.html"><a href="multiple-testing.html#objectives-9"><i class="fa fa-check"></i><b>10.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="multiple-testing.html"><a href="multiple-testing.html#outcomes-9"><i class="fa fa-check"></i><b>10.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="10.1.4" data-path="multiple-testing.html"><a href="multiple-testing.html#deliverables-9"><i class="fa fa-check"></i><b>10.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="10.1.5" data-path="multiple-testing.html"><a href="multiple-testing.html#prerequisites-9"><i class="fa fa-check"></i><b>10.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="multiple-testing.html"><a href="multiple-testing.html#self-evaluation-6"><i class="fa fa-check"></i><b>10.2</b> Self-evaluation</a></li>
+<li class="chapter" data-level="10.3" data-path="multiple-testing.html"><a href="multiple-testing.html#further-reading-links-and-resources-7"><i class="fa fa-check"></i><b>10.3</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="de-genes.html"><a href="de-genes.html#geo2r"><i class="fa fa-check"></i><b>11</b> GEO2R</a><ul>
+<li class="chapter" data-level="11.1" data-path="geo2r.html"><a href="geo2r.html"><i class="fa fa-check"></i><b>11.1</b> Overview</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="geo2r.html"><a href="geo2r.html#abstract-10"><i class="fa fa-check"></i><b>11.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="11.1.2" data-path="geo2r.html"><a href="geo2r.html#objectives-10"><i class="fa fa-check"></i><b>11.1.2</b> Objectives:</a></li>
+<li class="chapter" data-level="11.1.3" data-path="geo2r.html"><a href="geo2r.html#outcomes-10"><i class="fa fa-check"></i><b>11.1.3</b> Outcomes:</a></li>
+<li class="chapter" data-level="11.1.4" data-path="geo2r.html"><a href="geo2r.html#deliverables-10"><i class="fa fa-check"></i><b>11.1.4</b> Deliverables:</a></li>
+<li class="chapter" data-level="11.1.5" data-path="geo2r.html"><a href="geo2r.html#prerequisites-10"><i class="fa fa-check"></i><b>11.1.5</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="geo2r.html"><a href="geo2r.html#evaluation-2"><i class="fa fa-check"></i><b>11.2</b> Evaluation</a></li>
+<li class="chapter" data-level="11.3" data-path="geo2r.html"><a href="geo2r.html#self-evaluation-7"><i class="fa fa-check"></i><b>11.3</b> Self-evaluation</a></li>
+<li class="chapter" data-level="11.4" data-path="geo2r.html"><a href="geo2r.html#further-reading-links-and-resources-8"><i class="fa fa-check"></i><b>11.4</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html"><i class="fa fa-check"></i><b>12</b> Integrator Unit: Expression Data</a><ul>
+<li class="chapter" data-level="12.1" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> Overview</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#abstract-11"><i class="fa fa-check"></i><b>12.1.1</b> Abstract:</a></li>
+<li class="chapter" data-level="12.1.2" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#deliverables-11"><i class="fa fa-check"></i><b>12.1.2</b> Deliverables:</a></li>
+<li class="chapter" data-level="12.1.3" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#prerequisites-11"><i class="fa fa-check"></i><b>12.1.3</b> Prerequisites:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#evaluation-3"><i class="fa fa-check"></i><b>12.2</b> Evaluation</a></li>
+<li class="chapter" data-level="12.3" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#select-an-expression-data-set"><i class="fa fa-check"></i><b>12.3</b> Select an Expression Data Set</a></li>
+<li class="chapter" data-level="12.4" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#clean-the-data-and-map-to-hugo-symbols"><i class="fa fa-check"></i><b>12.4</b> Clean the data and map to HUGO symbols</a></li>
+<li class="chapter" data-level="12.5" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#apply-quantile-normalization-qn"><i class="fa fa-check"></i><b>12.5</b> Apply Quantile Normalization (QN)</a></li>
+<li class="chapter" data-level="12.6" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#interpret-and-document"><i class="fa fa-check"></i><b>12.6</b> Interpret, and document</a></li>
+<li class="chapter" data-level="12.7" data-path="integrator-unit-expression-data.html"><a href="integrator-unit-expression-data.html#further-reading-links-and-resources-9"><i class="fa fa-check"></i><b>12.7</b> Further reading, links and resources</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="about.html"><a href="about.html"><i class="fa fa-check"></i><b>13</b> About</a><ul>
+<li class="chapter" data-level="13.1" data-path="about.html"><a href="about.html#attributions"><i class="fa fa-check"></i><b>13.1</b> Attributions:</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BCB420 - Computational System Biology</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="integrator-unit-expression-data" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Integrator Unit: Expression Data</h1>
+<p>(Integrator unit: select, clean and normalize expression data)</p>
+<div id="overview-11" class="section level2">
+<h2><span class="header-section-number">12.1</span> Overview</h2>
+<div id="abstract-11" class="section level3">
+<h3><span class="header-section-number">12.1.1</span> Abstract:</h3>
+<p>This page integrates material from the learning units and defines a task for selecting and normalizing human expression data.</p>
+</div>
+<div id="deliverables-11" class="section level3">
+<h3><span class="header-section-number">12.1.2</span> Deliverables:</h3>
+<p>Integrator unit: Deliverables can be submitted for course marks. See below for details.</p>
+</div>
+<div id="prerequisites-11" class="section level3">
+<h3><span class="header-section-number">12.1.3</span> Prerequisites:</h3>
+<p>This unit builds on material covered in the following prerequisite units:</p>
+<p><a href="de-genes.html#geo2r">RPR-GEO2R (GEO2R)</a><br></p>
+</div>
+</div>
+<div id="evaluation-3" class="section level2">
+<h2><span class="header-section-number">12.2</span> Evaluation</h2>
+<p>Your progress and outcomes of this “Integrator Unit” will be one of the topics of the first oral exam for BCB420/JTB2020. That oral exam will be worth 20% of your term grade.<a href="about.html#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a>.</p>
+<ul>
+<li>Work through the tasks described below.</li>
+<li>Note that there are several tasks that need to be coordinated with your teammates and classmates. This is necessary to ensure the feature sets can be merged in the second phase of the course. Be sure to begin this coordination process in time.</li>
+<li>Remember to document your work in your journal concurrently with your progress. Journal entries that are uploaded in bulk at the end of your work will not be considered evidence of ongoing engagement.</li>
+<li>Your task will involve writing an R script. Place your script code in a subpage of your User page on the Student Wiki<a href="about.html#fn9" class="footnoteRef" id="fnref9"><sup>9</sup></a> and link to the page from your Journal.</li>
+<li>Schedule an oral exam by editing the signup page on the Student Wiki. You must have signed-up for an exam slot before 20:00 on the day before your exam.</li>
+<li>Your work must be complete before 20:00 on the day before your exam.</li>
+</ul>
+<p>Your task is to select an expression dataset that is suitable for use as a “feature” for human genes in machine learning. Currently, expression data are collected with microarrays and from RNAseq experiments. If we want to use different experiments in a computational experiment, we need to consider very carefully how to prepare comparable values.</p>
+<p>To begin, please read the following paper:</p>
+<p>Taroni &amp; Greene (2017) Cross-platform normalization enables machine learning model training on microarray and RNA-seq data simultaneously (BioRχiv doi: <a href="https://doi.org/10.1101/118349" class="uri">https://doi.org/10.1101/118349</a>)</p>
+<p>Our ultimate goal is to explore machine learning approaches to evaluate systems membership of genes. For this, we need features that annotate genes, are suitable for machine learning, and are informative regarding the function of the gene. Expression profiles have great potential for this, since genes that collaborate are often (although not always) co-regulated - either directly by being part of the same gene regulatory pathways, or indirectly by being similarly responsive to environmental conditions or other stimuli. In order to build “good” features, the data need to be of good quality, and informative for our purpose. We need expression datasets -</p>
+<ul>
+<li>with good coverage;</li>
+<li>not much older than ten years (quality!);</li>
+<li>with sufficient numbers of replicates;</li>
+<li>collected under interesting conditions;</li>
+<li>mapped to unique human gene identifiers.</li>
+</ul>
+<p>For this integrator unit you will prepare a script that will produce one reference and one experimental feature data set for human genes (from the same experiment).</p>
+<p>To avoid mistakes in praparing the dataset, discuss your approach with your team members, or post questions on the mailing list. You are encouraged to discuss strategies with anyone however the script you submit must be entirely your own and you must not copy code (apart from the script template) from elsewhere.</p>
+<p>Read the entire set of requirements and parameters carefully before you begin. I have posted sample code that covers some of the aspects in the ./inst/scripts/ directory of the zu project/package repository.</p>
+</div>
+<div id="select-an-expression-data-set" class="section level2">
+<h2><span class="header-section-number">12.3</span> Select an Expression Data Set</h2>
+<div class="rmd-task">
+<p>
+Navigate to the GEO expression dataset search page and select an expression dataset you will work with.
+</p>
+</div>
+<p><strong>1</strong> – Choose a dataset of native, healthy human cells or tissue …<br> If your dataset is not native, healthy human tissue, you will not receive credit. An exception can be made if you feel that you have discovered an experiment on different cells that will be particularly useful regardless. If so, contact me for special permission.</p>
+<p><strong>2</strong> – Choose an interesting experiment …<br> If we are to use these features to assess system membership, their expression response to the experimental conditions must reflect some biological property. Ideally, this will be a physiological response of some sort, disease states may be less suited to this question. It is your task to reflect on this question and choose accordingly.</p>
+<p><strong>3</strong> – Make sure the coverage is as complete as possible …<br> Experiments that measure expression for only a small subset of genes are not suitable.</p>
+<p><strong>4</strong> – Choose high-quality experiments …<br> The experiments should be performed with technical replicates (the more the better), and you will average the replicates as you prepare the feature data set. It also should be performed with mature experimental platforms, according to best-practice procedures; therefore we should choose recent experiments (not older than ten years). As above, contact me for special permission if you want to deviate from this requirement.</p>
+<p><strong>Claim the dataset on the dataset signup page of the Student Wiki.</strong></p>
+</div>
+<div id="clean-the-data-and-map-to-hugo-symbols" class="section level2">
+<h2><span class="header-section-number">12.4</span> Clean the data and map to HUGO symbols</h2>
+<div class="rmd-task">
+<p>
+Develop your code in an R script that you submit as part of this task. The script should implement the following workflow:
+</p>
+</div>
+<p><strong>1</strong> – Download the data …<br> Do not work on manually downloaded data, but use the GEOquery Bioconductor package. (Obviously, do not re-download the dataset every time you run the script, but figure out a strategy to download only when necessary.) Sample code is in the R code associeted with the RPR-GEO2R learning unit.</p>
+<p><strong>2</strong> – Assess …<br> Compute overview statistics to assess data quality for the control and test conditions in your dataset. You will only submit one feature for the control condition, and one feature for the test condition - so you can remove columns that correspond to other conditions from the dataset at this point.</p>
+<p><strong>3</strong> – Map …<br> Your dataset probably does not contain HUGO gene symbols as row identifiers - you need to map rows to symbols. How? Figure that out in collaboration with your team and the rest of the class. It is crucial that everyone maps to the same gene symbols. I have prepared a reference set of symbols in the zu repository. It is in inst/extdata and the corresponding script is in inst/scripts. But you will need to figure out how to handle unmapped rows (these are likely outdated aliases of current symbols, or possibly deprecated ORFs). You also need to figure out what to do with rows that map to more than one symbol (perhaps the sequenced fragment was not unique, or the microarray spot hybridizes to more than one gene.) Finally you need to figure out what to do with multiple rows that map to the same symbol (these could be splice variants, or probes that are designed as internal controls). In any case: you, your team, and the entire class have to come up with a consensus how these situations will be handled correctly. And your code must implement the consensus. Simply removing these cases from the dataset is not satisfactory, and if your code does not correctly implement the consensus approach you may not receive credit.</p>
+<p><strong>4</strong> – Clean …<br> There are two considerations you need to go through: removing outliers, and imputing missing data. Whether one should remove outliers is a matter of debate<a href="about.html#fn10" class="footnoteRef" id="fnref10"><sup>10</sup></a>, but if one has well founded reasons to believe a measurement error has occurred, the measurement should indeed be discarded. For imputation strategies, see the RPR-Data-Imputation learning unit. As with the map-rows-to-gene-symbols task, we need a class-wide consensus on how to clean the data and your script must correctly implement that consensus.</p>
+<p><strong>5</strong> – Average …<br> Calculate robust estimates for expression values from the replicates in your dataset.</p>
+</div>
+<div id="apply-quantile-normalization-qn" class="section level2">
+<h2><span class="header-section-number">12.5</span> Apply Quantile Normalization (QN)</h2>
+<div class="rmd-task">
+<p>
+Next, transform the data with QN. The process is motivated and described in Taroni (2017), but once again there may be parameters to respect and we need a class-consensus on how to do this correctly. Coordinate as above.
+</p>
+<p>
+The final result of your script needs to be a dataframe with two numeric columns, named <GSET-ID>.ctrl and <GSET-ID>.test, all rows of the HUGO symbols must exist in the exact order of the HUGO symbol reference vector, and the HUGO symbols must be defined as rownames of the dataframe.
+</p>
+</div>
+<p>Example … If you are working on GSE01234 and you have mapped symbols DDD, AAA, and MMM, but not probe 1234_at, your initial dataframe after processing might look like this:</p>
+<pre><code>       sym     ctrl     test</code></pre>
+<p>1200_at DDD 69.40936 65.12871 1234_at <NA> 58.08945 82.15397 278_at AAA 65.62096 63.12460 112358_at MMM 46.75833 58.08034</p>
+<p>Assume HUGOSymbols contains the four symbols AAA, BBB, DDD, and MMM. Your final dataframe, according to the specifications, has to look like this:</p>
+<pre><code>GSE01234.ctrl GSE01234.test</code></pre>
+<p>AAA 65.62096 63.12460 BBB NA NA DDD 69.40936 65.12871 MMM 46.75833 58.08034</p>
+<p>Note that the rownames of the final dataframe are <strong>exactly the same</strong> as the HUGOSymbols vector. This is necessary so we can later merge our data across all expression datasets.</p>
+<p>I expect that you have actually produced such a dataset and have it available on your computer for reference. Do not upload this data to Github. If your script does not produce a data set according to these exact specifications, this must be clearly stated in the script.</p>
+</div>
+<div id="interpret-and-document" class="section level2">
+<h2><span class="header-section-number">12.6</span> Interpret, and document</h2>
+<p>The steps above conclude the actual data preparation. Be prepared to answer the following questions:</p>
+<div class="rmd-task">
+<ul>
+<li>
+What are the control and test conditions of the dataset?
+</li>
+<li>
+Why is the dataset of interest to our systems assessment task?
+</li>
+<li>
+Were there expression values that were not unique for specific genes? How did you handle these?
+</li>
+<li>
+Were there expression values that could not be mapped to current HUGO symbols?
+</li>
+<li>
+How many outliers were removed, how many datapoints were imputed?
+</li>
+<li>
+How did you handle replicates?
+</li>
+<li>
+What is the final coverage of your dataset?
+</li>
+</ul>
+</div>
+<p>Make sure your script contains the complete workflow, is fully commented, and contains all essential elements suggested by the script template<a href="about.html#fn11" class="footnoteRef" id="fnref11"><sup>11</sup></a>. This is a collaborative project - form matters.</p>
+</div>
+<div id="further-reading-links-and-resources-9" class="section level2">
+<h2><span class="header-section-number">12.7</span> Further reading, links and resources</h2>
+<ul>
+<li><a href="https://www.biorxiv.org/content/10.1101/118349v2">Taroni &amp; Greene (2017)</a> Cross-platform normalization enables machine learning model training on microarray and RNA-seq data simultaneously (BioRχiv doi: <a href="https://doi.org/10.1101/118349" class="uri">https://doi.org/10.1101/118349</a>)</li>
+<li>Quantile Normalization is provided in the <a href="https://bioconductor.org/packages/release/bioc/html/preprocessCore.html">preprocessCore Bioconductor package</a>:
+<ul>
+<li>Bolstad et al. (2003) A comparison of normalization methods for high density oligonucleotide array data based on variance and bias. Bioinformatics 19:185-93. (pmid: 12538238)<a href="https://www.ncbi.nlm.nih.gov/pubmed/12538238">PubMed</a>,<a href="https://academic.oup.com/bioinformatics/article/19/2/185/372664">DOI</a></li>
+</ul></li>
+<li><a href="https://master.bioconductor.org/packages/release/workflows/html/RNAseq123.html">RNA-seq analysis is easy as 1-2-3 with limma, Glimma and edgeR</a> Bioconductor workflow for RNAseq differential expression analysis with <strong>edgeR</strong>.</li>
+<li><a href="https://master.bioconductor.org/packages/release/workflows/html/rnaseqGene.html">RNA-seq workflow: gene-level exploratory analysis and differential expression</a> Bioconductor workflow for RNAseq differential expression analysis with DEseq2.</li>
+<li><a href="https://www.genenames.org/">HUGO Gene Nomenclature Committee</a> - the authoritative information source for gene symbols. Includes search functions for synonyms. aliases and other information, as well as downloadable data.</li>
+<li>Good discussion of current microarray normalization strategies, as well as a proposal how to apply QN to case/control datasets:
+<ul>
+<li>Cheng et al. (2016) CrossNorm: a novel normalization strategy for microarray data in cancers. Sci Rep 6:18898. (pmid: 26732145)<a href="https://www.ncbi.nlm.nih.gov/pubmed/26732145">PubMed</a>,<a href="https://www.nature.com/articles/srep18898">DOI</a><br />
+</li>
+</ul></li>
+<li>Quackenbusch’s paper is now old, but an often-cited standard reference in the field:
+<ul>
+<li>Quackenbush (2002) Microarray data normalization and transformation. Nat Genet 32 Suppl:496-501. (pmid: 12454644) <a href="https://www.ncbi.nlm.nih.gov/pubmed/12454644">PubMed</a>,<a href="https://www.nature.com/articles/ng1032z">DOI</a></li>
+</ul></li>
+</ul>
+<p><strong>If in doubt, ask!</strong><br> If anything about this learning unit is not clear to you, do not proceed blindly but ask for clarification. Post your question on the course mailing list: others are likely to have similar problems. Or send an email to your instructor.</p>
+
+<div class="rmd-original-history">
+<br><strong>Author</strong>: Boris Steipe <a href="mailto:boris.steipe@utoronto.ca">boris.steipe@utoronto.ca</a> <br> <strong>Created</strong>: 2017-08-05<br> <strong>Modified</strong>: 2018-01-26<br> Version: 1.1<br> <strong>Version history</strong>:<br> 1.1 Some resources and further reading added 1.0 First live version
+</div>
+
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="8">
+<li id="fn8"><p>Note: oral exams will focus on the content of Integrator Units, but will also cover material that leads up to it. All exams in this course are cumulative.<a href="integrator-unit-expression-data.html#fnref8">↩</a></p></li>
+<li id="fn9"><p>Use the appropriate GeSHi code markup<a href="integrator-unit-expression-data.html#fnref9">↩</a></p></li>
+<li id="fn10"><p>See <a href="https://stats.stackexchange.com/questions/200534/is-it-ok-to-remove-outliers-from-data/200923">this</a> conversation on cross-validated for example.<a href="integrator-unit-expression-data.html#fnref10">↩</a></p></li>
+<li id="fn11"><p>Refer to the script template inst/extdata/scripts/scriptTemplate.R in the <em>zu</em> project repository.<a href="integrator-unit-expression-data.html#fnref11">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="geo2r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="about.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/12_Expression_data.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["BCB420_Computational_Systems_Biology_Unit3_Basic_bioinfo.pdf", "BCB420_Computational_Systems_Biology_Unit3_Basic_bioinfo.epub"],
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
