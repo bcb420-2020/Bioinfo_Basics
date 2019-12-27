@@ -35,15 +35,6 @@ This unit builds on material covered in the following prerequisite units:
 
 [BIN-EXPR-Multiple_testing (Multiple Testing and Significance)](#multiple-testing)<br>
 
-## Evaluation
-
-This learning unit can be evaluated for a maximum of 6 marks. If you want to submit the tasks for this unit for credit:
-
-  * Create a new page on the student Wiki as a subpage of your User Page.
-  * There are a number of tasks in which you are explicitly asked you to submit code or other text for credit. Put all of these submission on this one page.
-When you are done with everything, add the following category tag to the end of page: [[Category:EVAL-RPR-GEO2R]].
-  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
-
 `r task_counter <- task_counter + 1`
 ## Task `r task_counter`
 
