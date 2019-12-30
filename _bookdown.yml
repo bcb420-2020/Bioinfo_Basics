@@ -5,7 +5,7 @@ language:
 delete_merged_file: true
 repo: https://https://github.com/bcb420-2020/Bioinfo_Basics
 output_dir: docs
-rmd_files: ["index.Rmd","01_Bioinfo_abstractions.Rmd","02_Storing_data.Rmd","03_Bioninfo_databases.Rmd","04_NCBI_Databases_and_Services.Rmd","05_Misc_databases.Rmd","06_Data_Integration.Rmd","07_Expression_Analysis.Rmd","08-GEO.Rmd","09_Differential_gene_expression.Rmd","10_Multiple_Hypothesis_testing.Rmd","11_GEO2R.Rmd"]
+rmd_files: ["index.Rmd","01_Bioinfo_abstractions.Rmd","02_Storing_data.Rmd","03_Bioninfo_databases.Rmd","04_NCBI_Databases_and_Services.Rmd","06_Data_Integration.Rmd","07_Expression_Analysis.Rmd","08-GEO.Rmd","09_Differential_gene_expression.Rmd","10_Multiple_Hypothesis_testing.Rmd","11_GEO2R.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: no
 bookdown::gitbook:
