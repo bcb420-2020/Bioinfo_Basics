@@ -34,33 +34,6 @@ This unit builds on material covered in the following prerequisite units:
 
 [BIN-Databases (Bioinformatics Databases)](#bioinfo-databases)
 
-## Evaluation
-
-This learning unit can be evaluated for a maximum of 6 marks. If you want to submit tasks for this unit for credit you have the following options. If you have any questions about these options, discuss on the mailing list.
-
-### Short Report option
-
-  * If you submit both BIN-NCBI and BIN-EBI for evaluation, you can choose this option for only one of the two.
-  * In the BIN-Storing_data unit you have found the protein of MYSPE that is most similar to yeast Mbp1, in MYSPE. Navigate to the NCBI Protein page for the RefSeq entry of this protein. Explore the links that go out from the page. Assess which resources are independently useful, and which resources merely recapitulate information that relates to yeast Mbp1, the protein that you originally searched with.
-  * Create a new page on the student Wiki as a subpage of your User Page.
-  * Write a short report on your findings. The goal of this short report is to develop a sense for where a page like this one collects original information, and where it merely acts as a record of annotation transfer. Refer to the "General" section of the marking rubrics for aspects of the report that will be evaluated.
-When you are done with everything, add the following category tag to the end of page:[[Category:EVAL-BIN-NCBI]].
-  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
-
-### Quiz option
-
-  * Open the signup-page for the quiz for this unit (linked from here) and add your name. Your name must be signed up by 12:00 of the day of the Quiz to ensure copies of the quiz are available for all participants.
-  * Quizzes will be written in class, back-to-back if there is more than one quiz scheduled. We may begin at any time. We will have an open-ended Q&A session before the quiz. You can't take the quiz if you are not present in class when the question sheets are handed out, so don't be late. Once all scheduled quizzes are written, we will discuss and mark them. You will mark your own quiz. All marking must be done with a red pen - so you must bring a red pen to class in order to participate. The mark you give yourself may be revised by the instructor after spot-checking quizzes. If this is necessary, you will be notified. You must mark your quiz correctly and honestly - don't get into trouble with academic integrity rules: it will be an academic offence if you mark questions as correct that were discussed in class and should have been marked incorrect. When in doubt, ask.
-
-### Option to write a "Self-Evaluation Question"
-
-  * If you submit both BIN-NCBI and BIN-EBI for evaluation, you can choose this option for only one of the two.
-  * Write a "Self-evaluation Question" (with a model solution) that explores a significant, non-trivial aspect of studying how to work with EBI resources within this learning unit. Ensure that the question is feasible, given the existing content of the unit - or coordinate an extension of the contents with your instructor. Ensure your question pursues a high-level learning goal, it should allow others to demonstrate understanding, critical analysis, and/or the capacity to integrate and synthesize knowledge, not merely test memorization. Ensure that your question is specific, not ambiguous, vague or tangential to the contents. Ensure you are testing valuable knowledge and skills, not Cargo Cult. Apply the marking rubrics in spirit to satisfy yourself of the quality of your contribution. Obviously, details of evaluation will vary with the question. Use the format and code templates that you find on the Self evaluation questions page - but don't assume those examples are already models of excellent contributions. Note: assume that approximately the same amount of work is expected for all evaluation options. Consequently, the standard of excellence for this option will be quite high.
-  * Create a new page on the student Wiki as a subpage of your User Page. Develop your question there.
-  * When you are done with everything, add the following category tag to the end of page: [[Category:EVAL-BIN-NCBI]].
-  * Once the page has been saved with this tag, it is considered "submitted". Do not change your submission after this tag has been added. The page will be marked and the category tag will be removed by the instructor.
-
-
 The [NCBI (National Center for Biotechnology Information)](https://www.ncbi.nlm.nih.gov/guide/sitemap/) is one of the two largest, international providers of data for genomics and molecular biology (the EBI is the other). With its annual budget of several hundred million dollars, it organizes a challenging program of data management at the largest scale, it makes its data freely and openly available over the Internet, worldwide, and it runs significant in-house research projects.
 
 In this unit we explore some of the offerings of the NCBI that can contribute to our objective of studying a particular gene in an organism of interest.
